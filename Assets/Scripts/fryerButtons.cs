@@ -29,12 +29,12 @@ public class fryerButtons : MonoBehaviour
         {
             if (!greenButton)
             {
-                other.gameObject.transform.position = new Vector3(-0.0776f, 1.0256f, 0.3464f);
+                transform.localPosition = new Vector3(-0.0776f, 1.0251f, 0.3448f);
                 fryerBasket.GetComponent<fryerBasket>().pushedDown();
             }
             else
             {
-                other.gameObject.transform.position = new Vector3(-9.91f, -0.2531458f, 0.1933f);
+                transform.localPosition = new Vector3(-9.91f, -0.62f, 0.52f);
                 fryerBasket.GetComponent<fryerBasket>().released();
             }
         }
@@ -46,10 +46,10 @@ public class fryerButtons : MonoBehaviour
         {
             if (!greenButton)
             {
-                other.gameObject.transform.position = new Vector3(-0.0776f, 1.027342f, 0.3431f);
+                transform.localPosition = new Vector3(-0.0776f, 1.027342f, 0.3431f);
             }
             else
-                other.gameObject.transform.position = new Vector3(-9.91f, -0.2514038f, 0.19f);
+                transform.localPosition = new Vector3(-9.91f, -0.2514038f, 0.19f);
         }
     }
 }

@@ -45,14 +45,11 @@ public class fryerBasket : MonoBehaviour
 
     public void pushedDown()
     {
-        Debug.Log("fuck you");
-        while (transform.position.y > 0.629f)
-            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 0.629f, transform.position.z), Time.deltaTime);
+        transform.position =  new Vector3(transform.position.x, 0.629f, transform.position.z);
     }
 
     public void released()
     {
-        while (transform.position.y < 0.76f)
-            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 0.76f, transform.position.z), Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, 0.76f, transform.position.z);
     }
 }
