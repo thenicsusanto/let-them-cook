@@ -8,12 +8,21 @@ public class GrilledFoodStopwatch : MonoBehaviour
     float currentTime;
     [SerializeField] private float timeToOvercooked;
 
-    [SerializeField] private Material preGrilledMat, grilledMat, overcookedMat;
+    [SerializeField] private Material undercookedMat, grilledMat, overcookedMat;
+
+    public CookedState state;
+    public enum CookedState
+    {
+        frozen,
+        undercooked,
+        grilled,
+        overcooked
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        state = CookedState.frozen;
     }
 
     // Update is called once per frame
@@ -30,15 +39,37 @@ public class GrilledFoodStopwatch : MonoBehaviour
     {
         if (currentTime > timeToOvercooked * 0.30f && currentTime < timeToOvercooked * 0.5f)
         {
-            GetComponentInChildren<Renderer>().material = preGrilledMat;
+            //loop through children and change materials
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if(transform.GetChild(i).GetComponent<Renderer>() != null)
+                {
+                    transform.GetChild(i).GetComponent<Renderer>().material = undercookedMat;
+                }
+            }
+            state = CookedState.undercooked;            
         }
         else if (currentTime >= timeToOvercooked * 0.5f && currentTime < timeToOvercooked * 0.85)
         {
-            GetComponentInChildren<Renderer>().material = grilledMat;
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if (transform.GetChild(i).GetComponent<Renderer>() != null)
+                {
+                    transform.GetChild(i).GetComponent<Renderer>().material = grilledMat;
+                }
+            }
+            state = CookedState.grilled;
         }
         else if (currentTime >= timeToOvercooked * 0.9f)
         {
-            GetComponentInChildren<Renderer>().material = overcookedMat;
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if (transform.GetChild(i).GetComponent<Renderer>() != null)
+                {
+                    transform.GetChild(i).GetComponent<Renderer>().material = overcookedMat;
+                }
+            }
+            state = CookedState.overcooked;
         }
     }
 }

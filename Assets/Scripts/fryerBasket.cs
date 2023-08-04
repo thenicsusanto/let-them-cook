@@ -20,7 +20,7 @@ public class fryerBasket : MonoBehaviour
     void Update()
     {
         if (transform.position.y < 0.629f)
-            transform.position = new Vector3(transform.position.x, 0.629f, transform.position.z);
+            transform.localPosition = new Vector3(transform.position.x, 0.629f, transform.position.z);
 
         if (transform.position.y > 0.76f)
             transform.position = new Vector3(transform.position.x, 0.76f, transform.position.z);
@@ -39,20 +39,17 @@ public class fryerBasket : MonoBehaviour
             indexOfFryerItem++;
             
         }
-        else
-            other.transform.position = new Vector3(0.749f, 0.826f, -1.212f);
+        /*else
+            other.transform.position = new Vector3(0.749f, 0.826f, -1.212f);*/
     }
 
     public void pushedDown()
     {
-        Debug.Log("fuck you");
-        while (transform.position.y > 0.629f)
-            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 0.629f, transform.position.z), Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, 0.629f, transform.position.z);
     }
 
     public void released()
     {
-        while (transform.position.y < 0.76f)
-            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 0.76f, transform.position.z), Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, 0.76f, transform.position.z);
     }
 }
