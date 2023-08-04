@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1157154955328601077}
-  - component: {fileID: 1157154955328601078}
-  - component: {fileID: 1157154955328601079}
   - component: {fileID: 1157154955328601072}
   - component: {fileID: 1157154955328601073}
   - component: {fileID: 1157154955328601074}
@@ -38,39 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90.749, z: 0}
---- !u!114 &1157154955328601078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157154955328600588}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 832c9b1332d7d4426ba573fedb19ab3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDog: {fileID: 1937978006764394165, guid: 9793931bce8a74324b19d41cdbffda44,
-    type: 3}
-  player: {fileID: 0}
---- !u!114 &1157154955328601079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157154955328600588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e7a4cac719ea4522b9aebc7f80d9afa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materials:
-  - {fileID: 2100000, guid: 36314e1a0b5614447b4f3b0ea8a21924, type: 2}
-  - {fileID: 2100000, guid: 7c1f39862e0c7478e83d8891602f10ed, type: 2}
-  underCooked: 0
-  cookedProperly: 0
-  overCooked: 0
 --- !u!54 &1157154955328601072
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -140,7 +105,7 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1157154955328601079}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: hotDogFood, Assembly-CSharp
         m_MethodName: SetRigidbody
         m_Mode: 1
