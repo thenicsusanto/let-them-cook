@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4061489125895633520}
   m_Layer: 8
   m_Name: FryVar1
-  m_TagString: Grillable
+  m_TagString: Fryable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
