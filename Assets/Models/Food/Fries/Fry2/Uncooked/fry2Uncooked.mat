@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-583500173650059284
+--- !u!114 &-3754743763969641542
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: fry1Burnt
+  m_Name: fry2Uncooked
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ValidKeywords:
   - _NORMALMAP
@@ -36,11 +36,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 162b2d77f43c54cd8981ff818eb779b9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 08747948e1e654aed856d6dbfc7e65a4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: a56d2c1a7d15747d39f33ffd3fba4e70, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6caaad35989dc48e99c48f6dd7611108, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailMask:
-        m_Texture: {fileID: 2800000, guid: db1ae85d99163479d831209be87a5e29, type: 3}
+        m_Texture: {fileID: 2800000, guid: 795f4161ac82349e0a413ded812430cc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
@@ -56,11 +56,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 2da36455fec524e839fcf073ab863343, type: 3}
+        m_Texture: {fileID: 2800000, guid: fea4c0c4546d44cfaaf9d3825082fe0a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 162b2d77f43c54cd8981ff818eb779b9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 08747948e1e654aed856d6dbfc7e65a4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
