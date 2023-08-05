@@ -227,9 +227,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopwatchActive: 0
   timeToOvercooked: 10
-  preGrilledMat: {fileID: 2100000, guid: c3e5124a8dbbf46139b8f1505679ccb5, type: 2}
+  undercookedMat: {fileID: 2100000, guid: c3e5124a8dbbf46139b8f1505679ccb5, type: 2}
   grilledMat: {fileID: 2100000, guid: 912b358c00e354a4c926f25a5b855c61, type: 2}
   overcookedMat: {fileID: 2100000, guid: 4e9e6e80a462c4fe09a9b744980b5514, type: 2}
+  state: 0
 --- !u!1 &8320301442452683952
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +292,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e9e6e80a462c4fe09a9b744980b5514, type: 2}
+  - {fileID: 2100000, guid: c3e5124a8dbbf46139b8f1505679ccb5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
