@@ -11,6 +11,8 @@ TagManager:
   - Grillable
   - rightHand
   - Fryable
+  - ground
+  - FoodBag
   layers:
   - Default
   - TransparentFX

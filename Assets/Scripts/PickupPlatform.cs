@@ -2,23 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrderPlatform : MonoBehaviour
+public class PickupPlatform : MonoBehaviour
 {
-    public bool takeOrder;
-    public GameObject currentCustomer;
+    public bool foodReady;
+    //public GameObject currentCustomer;
     //public GameObject priorityCustomer;
-    public List<GameObject> listOfCurrentCustomers = new List<GameObject>();
 
     bool forPCTesting;
 
     private void OnTriggerStay(Collider other)
     {
         //take away "&& !forPCTesting" when testing in VR
-        if(other.CompareTag("Customer") /*&& !forPCTesting*/)
+        if (other.CompareTag("FoodBag") /*&& !forPCTesting*/)
         {
-            takeOrder = true;
-            currentCustomer = other.gameObject;
-
+            foodReady = true;
             //delete below code when testing in vr because you are gonna press the bell
             //Debug.Log("Take order was called");
             //currentCustomer.GetComponent<Customer>().TakeOrder();
@@ -28,12 +25,11 @@ public class OrderPlatform : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Customer") /*&& priorityCustomer == null*/)
+        if (other.CompareTag("FoodBag"))
         {
-            takeOrder = false;
-            currentCustomer = null;
+            foodReady = false;
+            //currentCustomer = null;
             //priorityCustomer = other.gameObject;
-            listOfCurrentCustomers.Add(other.gameObject);
         }
     }
 }

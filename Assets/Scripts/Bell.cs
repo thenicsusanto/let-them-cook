@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class Bell : MonoBehaviour
 {
     [SerializeField] private OrderPlatform orderPlatform;
-
+    [SerializeField] private PickupPlatform pickupPlatform;
     [SerializeField] private GameObject button;
     [SerializeField] private UnityEvent onPress;
     [SerializeField] private UnityEvent onRelease;
@@ -65,10 +65,10 @@ public class Bell : MonoBehaviour
 
     public void CheckCollectOrder()
     {
-        if (orderPlatform.priorityCustomer != null)
+        if (pickupPlatform && orderPlatform.listOfCurrentCustomers.Count == 0)
         {
-            Debug.Log("Takes Order from CheckWaiting in Bell Script");
-            orderPlatform.priorityCustomer.GetComponent<Customer>().CollectOrder();
+            Debug.Log("Taking Order from CheckWaiting in Bell Script");
+            orderPlatform.listOfCurrentCustomers[0].GetComponent<Customer>().CollectOrder();
         }
     }
 }
