@@ -45,13 +45,6 @@ public class grillBehavior : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
-    {
-        //collision.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-        //collision.gameObject.GetComponent<Rigidbody>().useGravity = false;
-        hotDog = collision.gameObject;
-    }
-
     private void OnCollisionExit(Collision collision)
     {
         if(collision.gameObject.CompareTag("Grillable"))
