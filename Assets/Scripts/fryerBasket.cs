@@ -39,8 +39,6 @@ public class fryerBasket : MonoBehaviour
             indexOfFryerItem++;
             
         }
-        /*else
-            other.transform.position = new Vector3(0.749f, 0.826f, -1.212f);*/
     }
 
     public void pushedDown()
