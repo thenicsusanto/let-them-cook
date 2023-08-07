@@ -603,6 +603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f496d89884e4caba28b746a82df32e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBurger: {fileID: 0}
   player: {fileID: 0}
 --- !u!95 &1276145871
 Animator:
@@ -1125,6 +1126,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: french enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7321898088644457352, guid: e7bd08824b19246419eac71211d8bbee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7986935099972380978, guid: e7bd08824b19246419eac71211d8bbee,
         type: 3}
       propertyPath: m_RootOrder
@@ -1189,10 +1195,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5151571455013794986, guid: 4943dec785d3b4192971022802eec062,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8129513431967251212, guid: 4943dec785d3b4192971022802eec062,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129513431967251212, guid: 4943dec785d3b4192971022802eec062,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129513431967251212, guid: 4943dec785d3b4192971022802eec062,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129513431967251212, guid: 4943dec785d3b4192971022802eec062,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 8129513431967251212, guid: 4943dec785d3b4192971022802eec062,
         type: 3}
@@ -1222,12 +1248,12 @@ PrefabInstance:
     - target: {fileID: 8129513431967251212, guid: 4943dec785d3b4192971022802eec062,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8129513431967251212, guid: 4943dec785d3b4192971022802eec062,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8129513431967251212, guid: 4943dec785d3b4192971022802eec062,
         type: 3}
@@ -1244,6 +1270,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8129513431967251212, guid: 4943dec785d3b4192971022802eec062,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8906437571502727606, guid: 4943dec785d3b4192971022802eec062,
         type: 3}
       propertyPath: m_Name
@@ -1252,7 +1283,7 @@ PrefabInstance:
     - target: {fileID: 8906437571502727606, guid: 4943dec785d3b4192971022802eec062,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4943dec785d3b4192971022802eec062, type: 3}

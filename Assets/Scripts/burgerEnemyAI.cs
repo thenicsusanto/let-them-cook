@@ -65,7 +65,7 @@ public class burgerEnemyAI : MonoBehaviour
             Destroy(this.gameObject);
         }
         else
-        { 
+        {
             EnemyJump();
         }
     }
@@ -82,7 +82,7 @@ public class burgerEnemyAI : MonoBehaviour
             health -= 3;
             if (health < 1)
                 Destroy(this.gameObject);
-            
+
         }
 
     }
