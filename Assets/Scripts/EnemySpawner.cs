@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public List<Transform> enemySpawnPoint;
+    public spawners enemySpawnPoint;
+
     public List<GameObject> enemyPrefabList;
 
     [SerializeField] private float countDown;
@@ -35,12 +36,10 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < waves[currentWaveIndex].numEnemies; i++)
         {
-            int spawnIndex = Random.Range(0, enemySpawnPoint.Count);
+            //int spawnIndex = Random.Range(0, enemySpawnPoint.Count);
             int enemyToSpawn = 0;
-            //Random.Range(0, enemyPrefabList.Count);
 
-            //change this to spawn customer prefab with different customer order
-            GameObject newCustomer = Instantiate(enemyPrefabList[enemyToSpawn], enemySpawnPoint[spawnIndex].position, Quaternion.identity);
+            //GameObject newCustomer = Instantiate(enemyPrefabList[enemyToSpawn], enemySpawnPoint[spawnIndex].position, Quaternion.identity);
             yield return new WaitForSeconds(waves[currentWaveIndex].timingBetweenEnemies);
         }
         placeHolder = countDown;
@@ -51,5 +50,18 @@ public class EnemySpawner : MonoBehaviour
     {
         public int numEnemies;
         public float timingBetweenEnemies;
+    }
+
+    [System.Serializable]
+    public class spawners
+    {
+        public List<Transform> burgers;
+        public GameObject burgerPrefab;
+
+        public List<Transform> fries;
+        public GameObject fryPrefab;
+
+        public List<Transform> hotdogs;
+        public GameObject hotdogPrefab;
     }
 }

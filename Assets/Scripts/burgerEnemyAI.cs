@@ -52,7 +52,7 @@ public class burgerEnemyAI : MonoBehaviour
 
     private void EnemyJump()
     {
-        GetComponent<Rigidbody>().AddForce(Vector3.up * 2, ForceMode.Impulse);
+        GetComponent<Rigidbody>().AddForce(Vector3.up * 1.4f, ForceMode.Impulse);
     }
 
     private void OnTriggerEnter(Collider collision)

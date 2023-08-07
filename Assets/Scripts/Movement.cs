@@ -23,17 +23,18 @@ public class Movement : MonoBehaviour
         if (health <= 0)
             SceneManager.LoadScene("MainMenu");
     }
-    void OnTrigHold(InputValue inputValue)
+
+    /*    public void setPinkyTrue() { middleThreeFingers = true;}
+
+        public void setPinkyFalse() { middleThreeFingers = false; }
+
+        public void setIndexTrue() { indexFinger = true; }
+
+        public void setIndexFalse() { indexFinger = false; }*/
+
+
+    void OnTrigHold()
     {
-        Debug.Log("middleFiner");
         middleThreeFingers = true;
     }
-
-    void OnGripHold(InputValue inputValue)
-    {
-        Debug.LogError("indexFinger");
-        indexFinger = true;
-    }
-
-    void OnRestart() { SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
 }

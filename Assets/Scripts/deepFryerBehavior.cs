@@ -7,6 +7,8 @@ public class deepFryerBehavior : MonoBehaviour
 
     bool cookingFin;
 
+    GameObject fryerBasket;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,19 +24,16 @@ public class deepFryerBehavior : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void startCooking()
     {
-        if(other.CompareTag("fryerBasket"))
-        {
-            other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
-            foreach (GameObject go in other.gameObject.GetComponent<fryerBasket>().fryerObjects)
+            foreach (GameObject go in fryerBasket.gameObject.GetComponent<fryerBasket>().fryerObjects)
             {
                 go.GetComponent<GrilledFoodStopwatch>().stopwatchActive = true;
             }
 
             StartCoroutine(cookingFinished());
-        }
+        
     }
 
     private IEnumerator cookingFinished()
