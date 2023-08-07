@@ -22,9 +22,9 @@ public class Customer : MonoBehaviour
     public Order order;
     [SerializeField] private GameObject recipePrefab;
 
-    private State state;
+    [SerializeField] private State state;
 
-    private enum State
+    public enum State
     {
         WalkingToOrder,
         WalkingToWait,
@@ -60,7 +60,7 @@ public class Customer : MonoBehaviour
             leavePoints.Add(checkPointsLeavePrefab.transform.GetChild(i));
         }
 
-        nextPoint = orderPoints[0];  
+        nextPoint = orderPoints[0];
     }
 
     // Update is called once per frame
@@ -146,9 +146,15 @@ public class Customer : MonoBehaviour
 
     IEnumerator CollectFood()
     {
-        yield return new WaitForSeconds(2f);
-        GameObject hotDog = GameObject.Find("HotDogBun");
-        Destroy(hotDog);
+        yield return new WaitForSeconds(1.5f);
+        GameManager.Instance.readyFoodObject.transform.SetParent(gameObject.transform);
+        GameManager.Instance.readyFoodObject.transform.localPosition = Vector3.zero;
+        GameManager.Instance.readyFoodObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+        //GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag.Sort();
+        order.menuItems.Sort(ReorderFoodList);
+        Debug.Log("Sorted...");
+        CompareOrder();
+        //Write code below for customer to rate order and affect rating/reputation of Jerry's kitchen
         nextPointIndex = 0;
         state = State.WalkingToLeave;
     }
@@ -160,7 +166,12 @@ public class Customer : MonoBehaviour
             nextPointIndex++;
             if (nextPointIndex >= leavePoints.Count)
             {
+                //GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[0]
+                //if (order.menuItems[0].CompareFood())
+                
+                //Compare Order code below
                 Destroy(gameObject);
+                GameManager.Instance.readyFoodObject = null;
                 return;
             }
             nextPoint = leavePoints[nextPointIndex];
@@ -202,5 +213,45 @@ public class Customer : MonoBehaviour
         state = State.WalkingToCollect;
         nextPoint = collectPoints[0];
         nextPointIndex = 0;
+    }
+
+    public int ReorderFoodList(OrderItem value1, OrderItem value2)
+    {
+        if(value1.value < value2.value)
+        {
+            return -1;
+        }
+        else if(value1.value > value2.value)
+        {
+            return 1;
+        }
+        return 0;
+    }
+
+    void CompareOrder()
+    {
+        for (int i = 0; i < order.menuItems.Count; i++)
+        {
+            if (order.menuItems[i].value == 0 && GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i].value == 0)
+            {
+                Tenders comparedItem = (Tenders)GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i];
+                order.menuItems[i].CompareTenders(comparedItem);
+            }
+            else if (order.menuItems[i].value == 1 && GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i].value == 1)
+            {
+                HotDog comparedItem = (HotDog)GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i];
+                order.menuItems[i].CompareHotDog(comparedItem);
+            }
+            else if (order.menuItems[i].value == 2 && GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i].value == 2)
+            {
+                FrenchFry comparedItem = (FrenchFry)GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i];
+                order.menuItems[i].CompareFrenchFries(comparedItem);
+            }
+            else if (order.menuItems[i].value == 3 && GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i].value == 3)
+            {
+                Burger comparedItem = (Burger)GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i];
+                order.menuItems[i].CompareBurger(comparedItem);
+            }
+        }
     }
 }

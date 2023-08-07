@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    public void StartGame()
-    {
-
-    }
+    public GameObject readyFoodObject;
 }

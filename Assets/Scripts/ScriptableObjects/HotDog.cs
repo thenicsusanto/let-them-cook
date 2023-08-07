@@ -10,6 +10,22 @@ public class HotDog : OrderItem
     string ketchup = "";
     string mustard = "";
 
+    private void OnEnable()
+    {
+        value = 1;
+    }
+    public override void CompareHotDog(HotDog dish)
+    {
+        if(hasKetchup && dish.hasKetchup || !hasKetchup && !dish.hasKetchup)
+        {
+            Debug.Log("Condiments are correct");
+        }
+        else
+        {
+            Debug.Log("Condiments are wrong");
+        }
+    }
+
     public override string CheckOrders()
     {   
         if(hasKetchup)

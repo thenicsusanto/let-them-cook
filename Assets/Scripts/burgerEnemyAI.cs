@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Oculus.Platform.Models;
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(Animator))]
 public class burgerEnemyAI : MonoBehaviour
 {
-
+    public NavMeshAgent enemyBurger;
     public GameObject player;
     /*public Animator anim;*/
 
@@ -17,9 +18,18 @@ public class burgerEnemyAI : MonoBehaviour
     {
         /*anim.SetBool("Coming Closer", true);*/
         player = GameObject.FindGameObjectsWithTag("Player")[0];
-        StartCoroutine(MovePosition(10));
+        //StartCoroutine(MovePosition(10));
     }
 
+    private void Update()
+    {
+        //enemyBurger.SetDestination(player.transform.position);
+
+        // Lerp towards the player's position
+        Vector3 playerPos = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
+
+        transform.position = Vector3.Lerp(transform.position, playerPos, Time.deltaTime * 0.5f);
+    }
 
     IEnumerator MovePosition(float sec)
     {
@@ -38,12 +48,12 @@ public class burgerEnemyAI : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            player.GetComponent<Movement>().health -= 10;
+        //if(collision.gameObject.CompareTag("Player"))
+        //{
+        //    player.GetComponent<Movement>().health -= 10;
 
-        }
-        else if(collision.gameObject.CompareTag("ground"))
+        //}
+        if (collision.gameObject.CompareTag("ground"))
         {
             EnemyJump();
         }
@@ -51,7 +61,8 @@ public class burgerEnemyAI : MonoBehaviour
 
     private void EnemyJump()
     {
-        GetComponent<Rigidbody>().AddForce(Vector3.up * 5, ForceMode.Impulse);
+        GetComponent<Rigidbody>().AddForce(Vector3.up * 3, ForceMode.Impulse);
+        Debug.Log(gameObject.name + " jumped");
     }
 
     private void OnTriggerEnter(Collider collision)
