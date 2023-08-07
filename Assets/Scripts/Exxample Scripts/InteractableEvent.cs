@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class InteractableEvent : MonoBehaviour
 {
