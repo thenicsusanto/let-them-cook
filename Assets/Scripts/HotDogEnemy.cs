@@ -19,11 +19,13 @@ public class HotDogEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(toFire)
+        transform.rotation = Quaternion.LookRotation((player.transform.position - transform.position).normalized);
+
+        if (toFire)
         {
             toFire = false;
-            GameObject dog = Instantiate(attackDog, transform.position, Quaternion.identity);
-            dog.transform.localScale = new Vector3(5, 5, 5);
+            Instantiate(attackDog, transform.position, Quaternion.identity);
+            
             StartCoroutine(shootHotDog());
         }
     }

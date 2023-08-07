@@ -11576,7 +11576,9 @@ MonoBehaviour:
   - {fileID: 897897013}
   - {fileID: 1642540197}
   enemyPrefabList:
-  - {fileID: 3362950349849798778, guid: 5523f912887d6462185fc8a9e5851045, type: 3}
+  - {fileID: 8906437571502727606, guid: 4943dec785d3b4192971022802eec062, type: 3}
+  - {fileID: 7321898088644457352, guid: e7bd08824b19246419eac71211d8bbee, type: 3}
+  - {fileID: 5498452921624390250, guid: f0d442cab2ce64adc9e876587048b467, type: 3}
   countDown: 60
   waves:
   - numEnemies: 3
