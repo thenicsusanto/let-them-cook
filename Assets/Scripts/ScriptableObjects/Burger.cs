@@ -7,19 +7,15 @@ public class Burger : OrderItem
 {
     public bool hasCheese;
     public bool hasLettuce;
-    public bool hasTomatoes;
-    public bool hasOnions;
     string cheese = "";
     string lettuce = "";
-    string tomato = "";
-    string onion = "";
 
     private void OnEnable()
     {
         value = 3;
     }
 
-    public override void CompareBurger(Burger dish)
+    public override void CompareBurger(CreatedBurger dish)
     {
         if(hasCheese && dish.hasCheese)
         {
@@ -28,14 +24,6 @@ public class Burger : OrderItem
         else if(hasLettuce && dish.hasLettuce)
         {
             Debug.Log("Lettuce is correct");
-        }
-        else if(hasTomatoes && dish.hasTomatoes)
-        {
-            Debug.Log("Tomatoes are correct");
-        }
-        else if(hasOnions && dish.hasOnions)
-        {
-            Debug.Log("Onions are correct");
         }
     }
 
@@ -49,15 +37,7 @@ public class Burger : OrderItem
         {
             lettuce = "with lettuce";
         }
-        if(hasTomatoes)
-        {
-            tomato = "with tomatoes";
-        }
-        if(hasOnions)
-        {
-            tomato = "with onion";
-        }
 
-        return "1x " + "Hotdog " + cheese + lettuce + tomato + onion;
+        return "1x " + "Hotdog " + cheese + lettuce;
     }
 }

@@ -249,8 +249,8 @@ public class Customer : MonoBehaviour
             }
             else if (order.menuItems[i].value == 3 && GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i].value == 3)
             {
-                Burger comparedItem = (Burger)GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i];
-                order.menuItems[i].CompareBurger(comparedItem);
+                //CreatedBurger comparedItem = GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i];
+                //order.menuItems[i].CompareBurger(comparedItem);
             }
         }
     }

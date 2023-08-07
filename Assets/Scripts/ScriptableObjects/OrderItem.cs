@@ -5,7 +5,7 @@ using UnityEngine;
 public class OrderItem : ScriptableObject
 {
     public int value;
-    
+
     public virtual string CheckOrders() 
     {
         return null;
@@ -23,7 +23,7 @@ public class OrderItem : ScriptableObject
     {
 
     }
-    public virtual void CompareBurger(Burger dish)
+    public virtual void CompareBurger(CreatedBurger dish)
     {
 
     }
