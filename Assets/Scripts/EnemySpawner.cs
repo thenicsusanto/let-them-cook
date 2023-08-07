@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public spawners enemySpawnPoint;
+    public spawners enemy;
 
-    public List<GameObject> enemyPrefabList;
 
     [SerializeField] private float countDown;
     public Wave[] waves;
@@ -37,7 +36,18 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < waves[currentWaveIndex].numEnemies; i++)
         {
             //int spawnIndex = Random.Range(0, enemySpawnPoint.Count);
-            int enemyToSpawn = 0;
+            int enemyToSpawn = Random.Range(0, 3);
+
+            int enemyLocation = Random.Range(0, 2);
+
+
+            if (enemyToSpawn == 0)
+                Instantiate(enemy.burgerPrefab, enemy.burgers[enemyLocation].position, Quaternion.identity);
+            else if(enemyToSpawn == 1)
+                Instantiate(enemy.fryPrefab, enemy.fries[enemyLocation].position, Quaternion.identity);
+            else
+                Instantiate(enemy.hotdogPrefab, enemy.hotdogs[enemyLocation].position, Quaternion.identity);
+
 
             //GameObject newCustomer = Instantiate(enemyPrefabList[enemyToSpawn], enemySpawnPoint[spawnIndex].position, Quaternion.identity);
             yield return new WaitForSeconds(waves[currentWaveIndex].timingBetweenEnemies);
@@ -55,6 +65,7 @@ public class EnemySpawner : MonoBehaviour
     [System.Serializable]
     public class spawners
     {
+
         public List<Transform> burgers;
         public GameObject burgerPrefab;
 
