@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+
 public class Movement : MonoBehaviour
 {
 
@@ -24,17 +25,20 @@ public class Movement : MonoBehaviour
             SceneManager.LoadScene("MainMenu");
     }
 
-    /*    public void setPinkyTrue() { middleThreeFingers = true;}
 
-        public void setPinkyFalse() { middleThreeFingers = false; }
-
-        public void setIndexTrue() { indexFinger = true; }
-
-        public void setIndexFalse() { indexFinger = false; }*/
-
-
-    void OnTrigHold()
+    public void OnTrigHold(InputAction.CallbackContext context)
     {
-        middleThreeFingers = true;
+        if(context.performed)
+            indexFinger = true;
+        else
+            indexFinger = false;
+    }
+
+    public void OnGripHold(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            middleThreeFingers = true;
+        else
+            middleThreeFingers = false;
     }
 }

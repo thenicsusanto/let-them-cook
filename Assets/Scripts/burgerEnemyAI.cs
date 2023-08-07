@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Oculus.Platform.Models;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.XR.Interaction.Toolkit;
 
 [RequireComponent(typeof(Animator))]
 public class burgerEnemyAI : MonoBehaviour
@@ -10,6 +11,8 @@ public class burgerEnemyAI : MonoBehaviour
     public NavMeshAgent enemyBurger;
     public GameObject player;
     /*public Animator anim;*/
+
+    public Transform playerPos;
 
     int health = 10;
 
@@ -20,20 +23,22 @@ public class burgerEnemyAI : MonoBehaviour
         StartCoroutine(MovePosition(10));
     }
 
-  
+    private void Update()
+    {
+        playerPos.position = player.transform.position;
+    }
 
     IEnumerator MovePosition(float sec)
     {
         float timer = 0;
-        Vector3 oldPos = this.transform.position;
-        Vector3 targetPos = player.transform.position;
+        Vector3 oldPos = transform.position;
 
         while (timer < sec)
         {
             timer += Time.deltaTime;
-            Vector3 playerPos = Vector3.Lerp(oldPos, new Vector3(targetPos.x, transform.position.y, targetPos.z), timer / sec);
+            Vector3 newPos = Vector3.Lerp(oldPos, new Vector3(playerPos.position.x, transform.position.y, playerPos.position.z), timer / sec);
 
-            transform.position = new Vector3(playerPos.x, transform.position.y, playerPos.z);
+            transform.position = new Vector3(newPos.x, transform.position.y, newPos.z);
             yield return null;
         }
     }
@@ -45,7 +50,22 @@ public class burgerEnemyAI : MonoBehaviour
             player.GetComponent<Movement>().health -= 10;
 
         }
-        else { 
+
+        else if (collision.gameObject.CompareTag("rightHand") && player.GetComponent<Movement>().middleThreeFingers && player.GetComponent<Movement>().indexFinger)
+        {
+            Vector3 vel = collision.gameObject.GetComponent<Rigidbody>().velocity;
+            if (vel.x != 0 || vel.z != 0 || vel.y != 0.1)
+            {
+                Destroy(this.gameObject);
+                collision.gameObject.GetComponent<ActionBasedController>().SendHapticImpulse(0.1f, 0.1f);
+            }
+        }
+        else if (collision.gameObject.tag.Equals("Weapon"))
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        { 
             EnemyJump();
         }
     }

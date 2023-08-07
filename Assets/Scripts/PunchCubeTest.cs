@@ -11,7 +11,7 @@ public class PunchCubeTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -20,19 +20,11 @@ public class PunchCubeTest : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if(other.CompareTag("rightHand") && player.GetComponent<Movement>().middleThreeFingers && player.GetComponent<Movement>().indexFinger)
-        {
-            Vector3 vel = other.gameObject.GetComponent<Rigidbody>().velocity;
-            if(vel.x != 0 || vel.z != 0 || vel.y != 0.1)
-            {
-                Debug.Log("worked");
-                this.gameObject.GetComponent<Rigidbody>().velocity = (this.transform.position - other.transform.position) * 20;
-                player.GetComponent<Movement>().middleThreeFingers = false;
-                player.GetComponent<Movement>().indexFinger = false;
-                other.gameObject.GetComponent<ActionBasedController>().SendHapticImpulse(0.1f, 0.1f);
-            }
-        }
+        Debug.Log("knife kill");
+
+        
+    
     }
 }
