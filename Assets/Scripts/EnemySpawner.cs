@@ -37,6 +37,7 @@ public class EnemySpawner : MonoBehaviour
         {
             int spawnIndex = Random.Range(0, enemySpawnPoint.Count);
             int enemyToSpawn = 0;
+            //Random.Range(0, enemyPrefabList.Count);
 
             //change this to spawn customer prefab with different customer order
             GameObject newCustomer = Instantiate(enemyPrefabList[enemyToSpawn], enemySpawnPoint[spawnIndex].position, Quaternion.identity);

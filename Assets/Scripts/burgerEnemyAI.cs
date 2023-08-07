@@ -36,10 +36,11 @@ public class burgerEnemyAI : MonoBehaviour
         float timer = 0;
         Vector3 oldPos = this.transform.position;
         Vector3 targetPos = player.transform.position;
-        while(timer < sec)
+
+        while (timer < sec)
         {
             timer += Time.deltaTime;
-            Vector3 playerPos = Vector3.Lerp(oldPos, targetPos, timer / sec);
+            Vector3 playerPos = Vector3.Lerp(oldPos, new Vector3(targetPos.x, transform.position.y, targetPos.z), timer / sec);
 
             transform.position = new Vector3(playerPos.x, transform.position.y, playerPos.z);
             yield return null;
@@ -52,8 +53,13 @@ public class burgerEnemyAI : MonoBehaviour
         //{
         //    player.GetComponent<Movement>().health -= 10;
 
+<<<<<<< Updated upstream
         //}
         if (collision.gameObject.CompareTag("ground"))
+=======
+        }
+        else
+>>>>>>> Stashed changes
         {
             EnemyJump();
         }
@@ -61,8 +67,12 @@ public class burgerEnemyAI : MonoBehaviour
 
     private void EnemyJump()
     {
+<<<<<<< Updated upstream
         GetComponent<Rigidbody>().AddForce(Vector3.up * 3, ForceMode.Impulse);
         Debug.Log(gameObject.name + " jumped");
+=======
+        GetComponent<Rigidbody>().AddForce(Vector3.up * 2, ForceMode.Impulse);
+>>>>>>> Stashed changes
     }
 
     private void OnTriggerEnter(Collider collision)
