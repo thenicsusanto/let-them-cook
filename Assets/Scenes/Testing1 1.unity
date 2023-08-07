@@ -20234,8 +20234,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawnPoint:
-  - {fileID: 897897013}
-  - {fileID: 1642540197}
+    burgers: []
+    burgerPrefab: {fileID: 0}
+    fries: []
+    fryPrefab: {fileID: 0}
+    hotdogs: []
+    hotdogPrefab: {fileID: 0}
   enemyPrefabList:
   - {fileID: 3362950349849798778, guid: 5523f912887d6462185fc8a9e5851045, type: 3}
   countDown: 60
