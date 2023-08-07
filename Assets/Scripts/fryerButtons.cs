@@ -15,12 +15,12 @@ public class fryerButtons : MonoBehaviour
         {
             if (!greenButton)
             {
-                transform.position = new Vector3(-0.0776f, 1.0256f, 0.3464f);
+                //transform.position = new Vector3(-0.0776f, 1.0256f, 0.3464f);
                 fryerBasket.GetComponent<fryerBasket>().pushedDown();
             }
             else
             {
-                transform.position = new Vector3(-9.91f, -0.2531458f, 0.1933f);
+                //transform.position = new Vector3(-9.91f, -0.2531458f, 0.1933f);
                 fryerBasket.GetComponent<fryerBasket>().released();
             }
         }
@@ -28,7 +28,7 @@ public class fryerButtons : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("rightHand"))
+        /*if (other.gameObject.CompareTag("rightHand"))
         {
             if (!greenButton)
             {
@@ -36,6 +36,6 @@ public class fryerButtons : MonoBehaviour
             }
             else
                 transform.position = new Vector3(-9.91f, -0.2514038f, 0.19f);
-        }
+        }*/
     }
 }
