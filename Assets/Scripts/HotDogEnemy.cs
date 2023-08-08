@@ -6,7 +6,7 @@ public class HotDogEnemy : MonoBehaviour
 {
     public GameObject attackDog;
     public GameObject player;
-
+    public ParticleSystem enemyDeathParticle;
     bool toFire;
 
     // Start is called before the first frame update
@@ -46,6 +46,22 @@ public class HotDogEnemy : MonoBehaviour
             //{
             //    Destroy(this.gameObject);
             //}
+            Instantiate(enemyDeathParticle, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Pan"))
+        {
+            Instantiate(enemyDeathParticle, transform.position, Quaternion.identity);
+            Destroy(gameObject, 0.6f);
+        }
+
+        if (collision.gameObject.CompareTag("Stab"))
+        {
+            Instantiate(enemyDeathParticle, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

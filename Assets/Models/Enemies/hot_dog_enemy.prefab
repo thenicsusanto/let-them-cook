@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8118414480928292725}
   - component: {fileID: 6291125969898884031}
   - component: {fileID: 4651941463564506937}
-  - component: {fileID: 5697982740501648993}
   - component: {fileID: -4140914786671880803}
   m_Layer: 0
   m_Name: hot_dog_enemy
@@ -100,19 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDog: {fileID: 5974533983300958767, guid: bf714faf936884bc2ac47ef9ce19119e,
     type: 3}
-  player: {fileID: 0}
---- !u!114 &5697982740501648993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5498452921624390250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42f32e6be7a923d4f994c3a755c26a84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   player: {fileID: 0}
 --- !u!54 &-4140914786671880803
 Rigidbody:

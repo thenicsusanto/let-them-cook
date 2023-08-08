@@ -45,4 +45,17 @@ public class enemyFry : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Pan"))
+        {
+            Destroy(gameObject, 0.6f);
+        }
+
+        if (collision.gameObject.CompareTag("Stab"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

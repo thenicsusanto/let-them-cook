@@ -592,7 +592,6 @@ GameObject:
   - component: {fileID: 7986935099972380978}
   - component: {fileID: 7592490995234541275}
   - component: {fileID: 7592490995234541269}
-  - component: {fileID: 868735777886757872}
   - component: {fileID: 7592490995234541268}
   m_Layer: 0
   m_Name: french enemy
@@ -652,18 +651,6 @@ MonoBehaviour:
   attackDog: {fileID: 6651285403719588634, guid: a0a3c564a7d4a4fe0b61cbab96cf1d08,
     type: 3}
   player: {fileID: 0}
---- !u!114 &868735777886757872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7321898088644457352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4343cf1c97654f16b88cdc7a4a8d67a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &7592490995234541268
 Rigidbody:
   m_ObjectHideFlags: 0

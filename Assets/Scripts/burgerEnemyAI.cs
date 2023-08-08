@@ -11,6 +11,7 @@ public class burgerEnemyAI : MonoBehaviour
     public NavMeshAgent enemyBurger;
     public GameObject player;
     /*public Animator anim;*/
+    public bool wasHit;
 
     public Transform playerPos;
 
@@ -45,6 +46,7 @@ public class burgerEnemyAI : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        
         if (collision.gameObject.CompareTag("Player"))
         {
             player.GetComponent<Movement>().health -= 10;
@@ -54,6 +56,16 @@ public class burgerEnemyAI : MonoBehaviour
         {
             EnemyJump();
         }
+
+        if(collision.gameObject.CompareTag("Pan"))
+        {
+            Destroy(gameObject, 0.6f);
+        }
+
+        if(collision.gameObject.CompareTag("Stab"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void EnemyJump()
@@ -61,15 +73,15 @@ public class burgerEnemyAI : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(Vector3.up * 1.4f, ForceMode.Impulse);
     }
 
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.CompareTag("rightHand"))
-        {
-            health -= 3;
-            if (health < 1)
-                Destroy(this.gameObject);
+    //private void OnTriggerEnter(Collider collision)
+    //{
+    //    if (collision.gameObject.CompareTag("rightHand"))
+    //    {
+    //        health -= 3;
+    //        if (health < 1)
+    //            Destroy(this.gameObject);
 
-        }
+    //    }
 
-    }
+    //}
 }
