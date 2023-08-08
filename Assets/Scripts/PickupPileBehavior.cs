@@ -6,14 +6,11 @@ public class PickupPileBehavior : XRBaseInteractable
     [SerializeField]
     private GameObject grabbableObject;
 
-    [SerializeField]
-    private Transform transformToInstantiate;
-
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
         // Instantiate object
-        GameObject newObject = Instantiate(grabbableObject, transformToInstantiate.position, Quaternion.identity);
-
+        GameObject newObject = Instantiate(grabbableObject, args.interactorObject.transform.position, Quaternion.identity);
+        Debug.Log("instantiated" + grabbableObject.name);
         // Get grab interactable from prefab
         XRGrabInteractable objectInteractable = newObject.GetComponent<XRGrabInteractable>();
 
