@@ -10,11 +10,12 @@ public class CreatedHotDog : MonoBehaviour
     public bool hasMustard;
 
     public string state;
+    public int value = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        value = 1;
     }
 
     // Update is called once per frame

@@ -1,45 +1,31 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class FryAttack : MonoBehaviour
 {
     public GameObject player;
-    private Rigidbody rb;
-
-    Transform playerPos;
+    [SerializeField] private float speed;
+    Vector3 direction;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectsWithTag("Player")[0];
+        player = GameObject.Find("CenterEyeAnchor");
+        direction = (player.transform.position - transform.position).normalized;
 
-        Vector3 vel = (player.transform.position - transform.position).normalized;
-
-        playerPos = player.transform;
-
-        Quaternion newRot = Quaternion.LookRotation(vel);
-        transform.rotation = newRot;
-        transform.eulerAngles += new Vector3(0, -90, 0);
-
-
-        vel *= 3f;
-        Debug.Log(vel);
-        rb = GetComponent<Rigidbody>();
-        rb.velocity = (vel);
-
-
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        transform.rotation = targetRotation;
+        Destroy(gameObject, 4f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 vel = (playerPos.position - transform.position).normalized;
-        vel *= 3f;
-        rb.velocity = vel;
 
-        
+        transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
 
         if (Mathf.Abs(player.transform.position.x - transform.position.x) < 0.1f &&
             Mathf.Abs(player.transform.position.z - transform.position.z) < 0.1f &&
@@ -51,11 +37,5 @@ public class FryAttack : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (!collision.gameObject.CompareTag("DOG"))
-        {
-            Destroy(this.gameObject);
-        }
-    }
+
 }

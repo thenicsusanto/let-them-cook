@@ -36,20 +36,16 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < waves[currentWaveIndex].numEnemies; i++)
         {
             //int spawnIndex = Random.Range(0, enemySpawnPoint.Count);
-            int enemyToSpawn = Random.Range(0, 3);
+            int enemyToSpawn = Random.Range(0, 2);
 
             int enemyLocation = Random.Range(0, 2);
 
-
+            enemyToSpawn = 1;
             if (enemyToSpawn == 0)
             {
                 Instantiate(enemy.burgerPrefab, enemy.burgers[enemyLocation].position, Quaternion.identity);
                 TheAudioManager.Instance.PlaySFX("SpawnEnemyBurger");
             }
-            else if(enemyToSpawn == 1)
-            {
-                Instantiate(enemy.fryPrefab, enemy.fries[enemyLocation].position, Quaternion.identity);
-            }  
             else
             {
                 Instantiate(enemy.hotdogPrefab, enemy.hotdogs[enemyLocation].position, Quaternion.identity);
@@ -75,8 +71,8 @@ public class EnemySpawner : MonoBehaviour
         public List<Transform> burgers;
         public GameObject burgerPrefab;
 
-        public List<Transform> fries;
-        public GameObject fryPrefab;
+        //public List<Transform> fries;
+        //public GameObject fryPrefab;
 
         public List<Transform> hotdogs;
         public GameObject hotdogPrefab;

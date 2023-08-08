@@ -15,7 +15,7 @@ public class Customer : MonoBehaviour
     [SerializeField] private GameObject checkPointsLeavePrefab;
     [SerializeField] private float rotationSpeed;
     int nextPointIndex;
-    public Transform nextPoint;
+    Transform nextPoint;
     Quaternion lookRotation;
     Vector3 direction;
 
@@ -234,26 +234,26 @@ public class Customer : MonoBehaviour
     {
         for (int i = 0; i < order.menuItems.Count; i++)
         {
-            if (order.menuItems[i].value == 0 && GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i].value == 0)
-            {
-                Tenders comparedItem = (Tenders)GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i];
-                order.menuItems[i].CompareTenders(comparedItem);
-            }
-            else if (order.menuItems[i].value == 1 && GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i].value == 1)
-            {
-                HotDog comparedItem = (HotDog)GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i];
-                order.menuItems[i].CompareHotDog(comparedItem);
-            }
-            else if (order.menuItems[i].value == 2 && GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i].value == 2)
-            {
-                FrenchFry comparedItem = (FrenchFry)GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i];
-                order.menuItems[i].CompareFrenchFries(comparedItem);
-            }
-            else if (order.menuItems[i].value == 3 && GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i].value == 3)
-            {
-                //CreatedBurger comparedItem = GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i];
-                //order.menuItems[i].CompareBurger(comparedItem);
-            }
+            //if (order.menuItems[i].value == 0 && GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i].value == 0)
+            //{
+            //    Tenders comparedItem = (Tenders)GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i];
+            //    order.menuItems[i].CompareTenders(comparedItem);
+            //}
+            //else if (order.menuItems[i].value == 1 && GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i].value == 1)
+            //{
+            //    HotDog comparedItem = (HotDog)GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i];
+            //    order.menuItems[i].CompareHotDog(comparedItem);
+            //}
+            //else if (order.menuItems[i].value == 2 && GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i].value == 2)
+            //{
+            //    FrenchFry comparedItem = (FrenchFry)GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i];
+            //    order.menuItems[i].CompareFrenchFries(comparedItem);
+            //}
+            //else if (order.menuItems[i].value == 3 && GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i].value == 3)
+            //{
+            //    //CreatedBurger comparedItem = GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i];
+            //    //order.menuItems[i].CompareBurger(comparedItem);
+            //}
         }
     }
 }

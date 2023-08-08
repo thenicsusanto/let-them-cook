@@ -12,7 +12,7 @@ public class HotDogEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        player = GameObject.Find("CenterEyeAnchor");
         StartCoroutine(shootHotDog());
     }
 
@@ -24,8 +24,7 @@ public class HotDogEnemy : MonoBehaviour
         if (toFire)
         {
             toFire = false;
-            Instantiate(attackDog, transform.position, Quaternion.identity);
-            
+            GameObject newProjectile = Instantiate(attackDog, transform.position, Quaternion.identity);
             StartCoroutine(shootHotDog());
         }
     }
@@ -36,20 +35,20 @@ public class HotDogEnemy : MonoBehaviour
         toFire = true;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("rightHand") && player.GetComponent<Movement>().middleThreeFingers && player.GetComponent<Movement>().indexFinger)
-        {
-            //Debug.Log("Puched");
-            //Vector3 vel = other.gameObject.GetComponent<Rigidbody>().velocity;
-            //if(vel.x != 0 || vel.z != 0 || vel.y != 0)
-            //{
-            //    Destroy(this.gameObject);
-            //}
-            Instantiate(enemyDeathParticle, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.CompareTag("rightHand") && player.GetComponent<Movement>().middleThreeFingers && player.GetComponent<Movement>().indexFinger)
+    //    {
+    //        //Debug.Log("Puched");
+    //        //Vector3 vel = other.gameObject.GetComponent<Rigidbody>().velocity;
+    //        //if(vel.x != 0 || vel.z != 0 || vel.y != 0)
+    //        //{
+    //        //    Destroy(this.gameObject);
+    //        //}
+    //        Instantiate(enemyDeathParticle, transform.position, Quaternion.identity);
+    //        Destroy(gameObject);
+    //    }
+    //}
 
     private void OnCollisionEnter(Collision collision)
     {

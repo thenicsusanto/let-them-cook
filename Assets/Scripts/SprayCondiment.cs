@@ -19,12 +19,11 @@ public class SprayCondiment : MonoBehaviour
     public void PlayCondiment(ParticleSystem particleEffect)
     {
         particleEffect.Play();
-        Debug.Log("Played");
+        Debug.Log("Playing");
     }
 
     public void StopCondiment(ParticleSystem particleEffect)
     {
         particleEffect.Stop();
-        Debug.Log("Stopped");
     }
 }

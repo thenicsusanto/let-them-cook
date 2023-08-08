@@ -8,41 +8,41 @@ using UnityEngine.XR.Interaction.Toolkit;
 [RequireComponent(typeof(Animator))]
 public class burgerEnemyAI : MonoBehaviour
 {
-    public NavMeshAgent enemyBurger;
     public GameObject player;
     /*public Animator anim;*/
-    public bool wasHit;
-
-    public Transform playerPos;
+    public ParticleSystem deathEffect;
+    //public Transform playerPos;
+    public NavMeshAgent agent;
 
     int health = 10;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectsWithTag("Player")[0];
-        StartCoroutine(MovePosition(10));
+        player = GameObject.Find("CenterEyeAnchor");
+        //StartCoroutine(MovePosition(10));
     }
 
     private void Update()
     {
-        playerPos.position = player.transform.position;
+        //playerPos.position = player.transform.position;
+        agent.SetDestination(player.transform.position);
     }
 
-    IEnumerator MovePosition(float sec)
-    {
-        float timer = 0;
-        Vector3 oldPos = transform.position;
+    //IEnumerator MovePosition(float sec)
+    //{
+    //    float timer = 0;
+    //    Vector3 oldPos = transform.position;
 
-        while (timer < sec)
-        {
-            timer += Time.deltaTime;
-            Vector3 newPos = Vector3.Lerp(oldPos, new Vector3(playerPos.position.x, transform.position.y, playerPos.position.z), timer / sec);
+    //    while (timer < sec)
+    //    {
+    //        timer += Time.deltaTime;
+    //        Vector3 newPos = Vector3.Lerp(oldPos, new Vector3(playerPos.position.x, transform.position.y, playerPos.position.z), timer / sec);
 
-            transform.position = new Vector3(newPos.x, transform.position.y, newPos.z);
-            yield return null;
-        }
-    }
+    //        transform.position = new Vector3(newPos.x, transform.position.y, newPos.z);
+    //        yield return null;
+    //    }
+    //}
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -52,26 +52,30 @@ public class burgerEnemyAI : MonoBehaviour
             player.GetComponent<Movement>().health -= 10;
 
         }
-        else
-        {
-            EnemyJump();
-        }
+        //else
+        //{
+        //    EnemyJump();
+        //}
 
         if(collision.gameObject.CompareTag("Pan"))
         {
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             Destroy(gameObject, 0.6f);
+
         }
 
         if(collision.gameObject.CompareTag("Stab"))
         {
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
 
-    private void EnemyJump()
-    {
-        GetComponent<Rigidbody>().AddForce(Vector3.up * 1.4f, ForceMode.Impulse);
-    }
+    //private void EnemyJump()
+    //{
+    //    GetComponent<Rigidbody>().AddForce(Vector3.up * 1.4f, ForceMode.Impulse);
+    //}
 
     //private void OnTriggerEnter(Collider collision)
     //{

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5151571455013794965}
   - component: {fileID: 5151571455013794987}
   - component: {fileID: 5151571455013794984}
-  - component: {fileID: 4538471251317990804}
+  - component: {fileID: 1370988509798019498}
   m_Layer: 0
   m_Name: enemy_burger
   m_TagString: Untagged
@@ -30,8 +30,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8906437571502727606}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.4499688, y: 2.38, z: 3.9789886}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -102,7 +102,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!135 &5151571455013794965
 SphereCollider:
@@ -150,18 +150,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f496d89884e4caba28b746a82df32e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyBurger: {fileID: 0}
   player: {fileID: 0}
-  playerPos: {fileID: 0}
---- !u!114 &4538471251317990804
-MonoBehaviour:
+  deathEffect: {fileID: 5091803388915433793, guid: e06943b88472d41589f6524172e86578,
+    type: 3}
+  agent: {fileID: 1370988509798019498}
+--- !u!195 &1370988509798019498
+NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8906437571502727606}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4343cf1c97654f16b88cdc7a4a8d67a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_Radius: 101.403625
+  m_Speed: 0.2
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 168.29733
+  m_BaseOffset: 84.14867
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

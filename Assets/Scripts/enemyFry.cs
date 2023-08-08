@@ -12,7 +12,7 @@ public class enemyFry : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        player = GameObject.Find("CenterEyeAnchor");
         StartCoroutine(shootHotDog());
     }
 
