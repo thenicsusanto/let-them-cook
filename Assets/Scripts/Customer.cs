@@ -204,6 +204,8 @@ public class Customer : MonoBehaviour
         state = State.WalkingToWait;
         nextPoint = waitPoints[0];
         nextPointIndex = 0;
+
+        
     }
 
     public void CollectOrder()

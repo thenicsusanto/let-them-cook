@@ -50,20 +50,6 @@ public class burgerEnemyAI : MonoBehaviour
             player.GetComponent<Movement>().health -= 10;
 
         }
-
-        else if (collision.gameObject.CompareTag("rightHand") && player.GetComponent<Movement>().middleThreeFingers && player.GetComponent<Movement>().indexFinger)
-        {
-            Vector3 vel = collision.gameObject.GetComponent<Rigidbody>().velocity;
-            if (vel.x != 0 || vel.z != 0 || vel.y != 0.1)
-            {
-                Destroy(this.gameObject);
-                collision.gameObject.GetComponent<ActionBasedController>().SendHapticImpulse(0.1f, 0.1f);
-            }
-        }
-        else if (collision.gameObject.tag.Equals("Weapon"))
-        {
-            Destroy(this.gameObject);
-        }
         else
         {
             EnemyJump();

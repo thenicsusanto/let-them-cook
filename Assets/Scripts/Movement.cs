@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         if (health <= 0)
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 
