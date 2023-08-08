@@ -26,7 +26,7 @@ public class burgerEnemyAI : MonoBehaviour
 
     private void Update()
     {
-        playerPos.position = player.transform.position;
+        playerPos = player.transform;
     }
 
     IEnumerator MovePosition(float sec)

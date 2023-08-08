@@ -17,6 +17,9 @@ public class Customer : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     [SerializeField] private GameObject patienceSlider;
 
+    public GameObject newRecipe;
+    bool patience;
+
     int nextPointIndex;
     public Transform nextPoint;
     Quaternion lookRotation;
@@ -64,6 +67,9 @@ public class Customer : MonoBehaviour
         }
 
         nextPoint = orderPoints[0];
+
+        patienceSlider = GameObject.FindGameObjectWithTag("patience");
+        patience = false;
     }
 
     // Update is called once per frame
@@ -86,6 +92,12 @@ public class Customer : MonoBehaviour
             MoveCustomerToLeave();
         }
         RotateCustomer();
+
+        if(patienceSlider.GetComponent<Image>().fillAmount > 0.97 && patience) {
+            patience = false;
+            Destroy(newRecipe.gameObject);
+            //insert angry leaving sound
+        }
         
     }
 
@@ -201,7 +213,7 @@ public class Customer : MonoBehaviour
 
     public void TakeOrder()
     {
-        GameObject newRecipe = Instantiate(recipePrefab, new Vector3(-0.0140008926f, 0.843999982f, 0.995999992f), Quaternion.Euler(new Vector3(90, 0, 0)));
+        newRecipe = Instantiate(recipePrefab, new Vector3(-0.0140008926f, 0.843999982f, 0.995999992f), Quaternion.Euler(new Vector3(90, 0, 0)));
         newRecipe.GetComponent<Receipt>().order1.text = order.menuItems[0].CheckOrders();
         //newRecipe.GetComponent<Receipt>().order2.text = order.menuItems[1].CheckOrders();
         //Write code for customer to walk back and wait for food
@@ -209,17 +221,21 @@ public class Customer : MonoBehaviour
         nextPoint = waitPoints[0];
         nextPointIndex = 0;
 
+        patienceSlider.GetComponent<Image>().fillAmount = 0;
+        patience = true;
         StartCoroutine(patienceTimer(30));
+        
     }
 
     IEnumerator patienceTimer(float sec)
     {
+        
         float timer = 0;
-        while(timer < sec) {
+        while((timer) < sec && patience) {
             timer += Time.deltaTime;
-            patienceSlider.GetComponent<Image>().fillAmount = timer / sec;
+            patienceSlider.GetComponent<Image>().fillAmount = (timer) / sec;
+            yield return null;
         }
-        yield return null;
     }
 
     public void CollectOrder()
