@@ -25,12 +25,8 @@ public class burgerEnemyAI : MonoBehaviour
 
     private void Update()
     {
-<<<<<<< HEAD
         //playerPos.position = player.transform.position;
         agent.SetDestination(player.transform.position);
-=======
-        playerPos = player.transform;
->>>>>>> cc920d83288f719f59c423369c2993e7a8436bea
     }
 
     //IEnumerator MovePosition(float sec)
@@ -50,7 +46,7 @@ public class burgerEnemyAI : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+
         if (collision.gameObject.CompareTag("Player"))
         {
             player.GetComponent<Movement>().health -= 10;
@@ -61,7 +57,7 @@ public class burgerEnemyAI : MonoBehaviour
         //    EnemyJump();
         //}
 
-        if(collision.gameObject.CompareTag("Pan"))
+        if (collision.gameObject.CompareTag("Pan"))
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
@@ -69,7 +65,7 @@ public class burgerEnemyAI : MonoBehaviour
 
         }
 
-        if(collision.gameObject.CompareTag("Stab"))
+        if (collision.gameObject.CompareTag("Stab"))
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
