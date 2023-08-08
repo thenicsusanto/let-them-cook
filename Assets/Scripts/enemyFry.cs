@@ -24,6 +24,7 @@ public class enemyFry : MonoBehaviour
         if (toFire)
         {
             toFire = false;
+            Vector3 yeet = transform.position;
             Instantiate(attackDog, transform.position, Quaternion.identity);
 
             StartCoroutine(shootHotDog());
