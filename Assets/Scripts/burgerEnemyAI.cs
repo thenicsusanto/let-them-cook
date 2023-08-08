@@ -25,8 +25,12 @@ public class burgerEnemyAI : MonoBehaviour
 
     private void Update()
     {
+<<<<<<< HEAD
         //playerPos.position = player.transform.position;
         agent.SetDestination(player.transform.position);
+=======
+        playerPos = player.transform;
+>>>>>>> cc920d83288f719f59c423369c2993e7a8436bea
     }
 
     //IEnumerator MovePosition(float sec)
