@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Customer : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Customer : MonoBehaviour
     [SerializeField] private GameObject checkPointsCollectPrefab;
     [SerializeField] private GameObject checkPointsLeavePrefab;
     [SerializeField] private float rotationSpeed;
+    [SerializeField] private GameObject patienceSlider;
+
     int nextPointIndex;
     public Transform nextPoint;
     Quaternion lookRotation;
@@ -83,6 +86,7 @@ public class Customer : MonoBehaviour
             MoveCustomerToLeave();
         }
         RotateCustomer();
+        
     }
 
     #region Movement
@@ -205,7 +209,17 @@ public class Customer : MonoBehaviour
         nextPoint = waitPoints[0];
         nextPointIndex = 0;
 
-        
+        StartCoroutine(patienceTimer(30));
+    }
+
+    IEnumerator patienceTimer(float sec)
+    {
+        float timer = 0;
+        while(timer < sec) {
+            timer += Time.deltaTime;
+            patienceSlider.GetComponent<Image>().fillAmount = timer / sec;
+        }
+        yield return null;
     }
 
     public void CollectOrder()
