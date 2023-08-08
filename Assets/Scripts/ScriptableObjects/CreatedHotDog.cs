@@ -19,11 +19,13 @@ public class CreatedHotDog : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void HotDogEntered()
     {
-        if (gameObject.name.Contains("ChickenTender"))
-        {
-            //Write code for has ketchup
-        }
+        Debug.Log("Entered");
+    }
+
+    public void HotDogExited()
+    {
+        Debug.Log("Exited");
     }
 }

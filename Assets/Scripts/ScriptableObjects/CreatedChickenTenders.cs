@@ -17,11 +17,13 @@ public class CreatedChickenTenders : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void ChickenEntered()
     {
-        if(gameObject.name.Contains("ChickenTender"))
-        {
-            tenderAmount++;
-        }
+        tenderAmount++;
+    }
+
+    public void ChickenExited()
+    {
+        tenderAmount--;
     }
 }

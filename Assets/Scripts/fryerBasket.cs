@@ -56,6 +56,7 @@ public class fryerBasket : MonoBehaviour
         transform.position = new Vector3(transform.position.x, 0.629f, transform.position.z);
         foreach (GameObject go in fryerObjects)
         {
+            TheAudioManager.Instance.PlaySFX("DeepFry");
             go.GetComponent<GrilledFoodStopwatch>().stopwatchActive = true;
             go.gameObject.transform.position = new Vector3(transform.position.x, 0.6628f, transform.position.z);
         }
@@ -66,6 +67,7 @@ public class fryerBasket : MonoBehaviour
         transform.position = new Vector3(transform.position.x, 0.76f, transform.position.z);
         foreach (GameObject go in fryerObjects)
         {
+            TheAudioManager.Instance.sfxSource.Stop();
             go.GetComponent<GrilledFoodStopwatch>().stopwatchActive = false;
             go.gameObject.transform.position = new Vector3(transform.position.x, 0.7847534f, transform.position.z);
         }
