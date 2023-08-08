@@ -23,11 +23,11 @@ public class EnemyKnockBack : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Weapon"))
         {
-            if (this.tag.Equals("Burger"))
+            if (this.name.Contains("enemy_burger"))
                 GetComponent<burgerEnemyAI>().enabled = false;
-            else if (this.tag.Equals("Fry"))
+            else if (this.name.Contains("french enemy"))
                 GetComponent<enemyFry>().enabled = false;
-            else
+            else if(this.name.Contains("hot_dog_enemy"))
                 GetComponent<HotDogEnemy>().enabled = false;
 
             knockBackAngle = (collision.gameObject.transform.position - this.transform.position).normalized;
