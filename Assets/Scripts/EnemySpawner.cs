@@ -42,12 +42,18 @@ public class EnemySpawner : MonoBehaviour
 
 
             if (enemyToSpawn == 0)
+            {
                 Instantiate(enemy.burgerPrefab, enemy.burgers[enemyLocation].position, Quaternion.identity);
+                TheAudioManager.Instance.PlaySFX("SpawnEnemyBurger");
+            }
             else if(enemyToSpawn == 1)
+            {
                 Instantiate(enemy.fryPrefab, enemy.fries[enemyLocation].position, Quaternion.identity);
+            }  
             else
+            {
                 Instantiate(enemy.hotdogPrefab, enemy.hotdogs[enemyLocation].position, Quaternion.identity);
-
+            }
 
             //GameObject newCustomer = Instantiate(enemyPrefabList[enemyToSpawn], enemySpawnPoint[spawnIndex].position, Quaternion.identity);
             yield return new WaitForSeconds(waves[currentWaveIndex].timingBetweenEnemies);
