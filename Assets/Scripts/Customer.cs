@@ -76,14 +76,11 @@ public class Customer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-<<<<<<< Updated upstream
         if (Input.GetKey(KeyCode.J))
             TakeOrder();
 
-        if(state == State.WalkingToOrder)
-=======
         if (state == State.WalkingToOrder)
->>>>>>> Stashed changes
+        if (state == State.WalkingToOrder)
         {
             MoveCustomerToOrder();
         }
