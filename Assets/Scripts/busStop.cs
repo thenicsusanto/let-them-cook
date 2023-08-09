@@ -7,12 +7,20 @@ public class busStop : MonoBehaviour
 {
     [SerializeField]
     private AudioSource busSound;
+    [SerializeField]
+    private AudioSource menuTheme;
 
-    
+
+    private void Start()
+    {
+        menuTheme.Play();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("MainCamera"))
         {
+            menuTheme.Stop();
             busSound.Play();
             StartCoroutine(leaveToScreen());
         }
