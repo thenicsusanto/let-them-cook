@@ -11,7 +11,7 @@ public class busStop : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Untagged"))
+        if(other.gameObject.CompareTag("MainCamera"))
         {
             busSound.Play();
             StartCoroutine(leaveToScreen());

@@ -8265,6 +8265,21 @@ PrefabInstance:
       propertyPath: InitialModule.startSizeZ.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 1997672295546974177, guid: 0f2c08cedbb004a659b26db2fb596374,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997672295546974177, guid: 0f2c08cedbb004a659b26db2fb596374,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997672295546974177, guid: 0f2c08cedbb004a659b26db2fb596374,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].repeatInterval
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2192302594272033573, guid: 0f2c08cedbb004a659b26db2fb596374,
         type: 3}
       propertyPath: m_RootOrder
