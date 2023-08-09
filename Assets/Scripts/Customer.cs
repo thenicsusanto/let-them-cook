@@ -17,6 +17,7 @@ public class Customer : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     [SerializeField] private GameObject patienceSlider;
 
+    public Transform receiptSpawnPoint;
     public GameObject newRecipe;
     bool patience;
 
@@ -104,8 +105,9 @@ public class Customer : MonoBehaviour
 
         if(patienceSlider.GetComponent<Image>().fillAmount > 0.97 && patience) {
             patience = false;
-            Destroy(newRecipe);
+            //Destroy(newRecipe);
             newRecipe = null;
+            Movement.customersLost += 1;
             //insert angry leaving sound
         }
         
@@ -223,7 +225,7 @@ public class Customer : MonoBehaviour
 
     public void TakeOrder()
     {
-        newRecipe = Instantiate(recipePrefab, new Vector3(0.18f, 0.844f, 0.996f), Quaternion.identity);
+        newRecipe = Instantiate(recipePrefab, receiptSpawnPoint.position, Quaternion.identity);
         newRecipe.GetComponent<Receipt>().nameText.text = order.customerName;
         newRecipe.GetComponent<Receipt>().orderNumberText.text = order.orderNumber;
         for (int i=0; i<order.menuItems.Count; i++)

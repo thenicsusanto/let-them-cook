@@ -16,7 +16,7 @@ public class grillBehavior : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Grillable"))
+        if (collision.gameObject.CompareTag("Grillable") )
         {
             timer = Time.time;
             //grillItem = other.gameObject;

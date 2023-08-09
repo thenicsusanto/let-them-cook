@@ -8,23 +8,11 @@ public class busStop : MonoBehaviour
     [SerializeField]
     private AudioSource busSound;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("DOG"))
+        if(other.gameObject.CompareTag("Untagged"))
         {
-            Debug.Log("anthony sucks");
             busSound.Play();
             StartCoroutine(leaveToScreen());
         }

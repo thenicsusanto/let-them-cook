@@ -14,6 +14,10 @@ public class Movement : MonoBehaviour
 
     public Image healthSlider;
 
+    public static int healthFinal = 100;
+
+    public static int customersLost = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,26 +27,16 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthSlider.fillAmount = ((float)health / 100.0f);
+        if (!SceneManager.GetActiveScene().name.Equals("Ending Screen"))
+        {
+            healthFinal = health;
 
-        if (health <= 0) { }
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            healthSlider.fillAmount = ((float)health / 100.0f);
+
+            if (health <= 0 || customersLost == 3) { }
+                SceneManager.LoadScene("EndingScreen");
+
+        }
     }
 
-
-    public void OnTrigHold(InputAction.CallbackContext context)
-    {
-        if(context.performed)
-            indexFinger = true;
-        else
-            indexFinger = false;
-    }
-
-    public void OnGripHold(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-            middleThreeFingers = true;
-        else
-            middleThreeFingers = false;
-    }
 }

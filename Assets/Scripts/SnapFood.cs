@@ -18,7 +18,7 @@ public class SnapFood : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.GetComponent<hotDogFood>() != null && collider.gameObject != this.transform.parent)
+        if (collider.gameObject.name.Contains("HotDogMe") && collider.gameObject != this.transform.parent)
         {
             Debug.Log("Collided with: " + collider.name);
             collider.GetComponent<XRGrabInteractable>().enabled = false;
