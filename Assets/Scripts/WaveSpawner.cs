@@ -33,7 +33,7 @@ public class WaveSpawner : MonoBehaviour
         {
             //change this to spawn customer prefab with different customer order
             GameObject newCustomer = Instantiate(customerPrefab, spawnPoint.position, Quaternion.identity);
-            newCustomer.gameObject.GetComponent<Customer>().order = waves[currentWaveIndex].customerOrders[i];
+            newCustomer.GetComponent<Customer>().order = waves[currentWaveIndex].customerOrders[i];
             yield return new WaitForSeconds(waves[currentWaveIndex].timeToNextCustomer);
         }
     }

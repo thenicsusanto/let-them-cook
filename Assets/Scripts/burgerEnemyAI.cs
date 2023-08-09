@@ -61,6 +61,7 @@ public class burgerEnemyAI : MonoBehaviour
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            TheAudioManager.Instance.PlaySFX("PanHit");
             Destroy(gameObject, 0.6f);
 
         }
@@ -68,6 +69,7 @@ public class burgerEnemyAI : MonoBehaviour
         if (collision.gameObject.CompareTag("Stab"))
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
+            TheAudioManager.Instance.PlaySFX("Stab");
             Destroy(gameObject);
         }
     }

@@ -7,25 +7,12 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class grillBehavior : MonoBehaviour
 {
     public Slider slider;
-    bool canInteract;
-
-    //GameObject grillItem;
-
     float timer;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        canInteract = false;
-    }
 
     [SerializeField] private Material frozenMat;
     [SerializeField] private Material pregrilled;
     [SerializeField] private Material grilledMat;
     [SerializeField] private Material overcooked;
-
-    private GameObject hotDog;
-    public AudioSource grillNoise;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -37,11 +24,10 @@ public class grillBehavior : MonoBehaviour
             //SelectGrillPoint(other.gameObject);
 
             Debug.Log("Collided");
-            canInteract = true;
             //StartCoroutine(StartTimer(10f));
             collision.gameObject.GetComponent<GrilledFoodStopwatch>().stopwatchActive = true;
             TheAudioManager.Instance.PlaySFX("MeatSlap");
-            grillNoise.Play();
+            //grillNoise.Play();
         }
     }
 
@@ -50,7 +36,6 @@ public class grillBehavior : MonoBehaviour
         if(collision.gameObject.CompareTag("Grillable"))
         {
             collision.gameObject.GetComponent<GrilledFoodStopwatch>().stopwatchActive = false;
-            canInteract = false;
         }
     }
 
@@ -77,7 +62,7 @@ public class grillBehavior : MonoBehaviour
     //        timer += Time.deltaTime;
     //        yield return null;
     //    }
-        
+
 
     //}
 }

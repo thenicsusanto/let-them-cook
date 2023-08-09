@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1960265809744584735}
+  - component: {fileID: 519055335444688881}
+  - component: {fileID: 1250462300520150159}
   m_Layer: 0
   m_Name: Customer
   m_TagString: Untagged
@@ -33,6 +35,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519055335444688881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125380575012680724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d4f89f2b70ef84daf502a4ac5310ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderPoints: []
+  waitPoints: []
+  collectPoints: []
+  leavePoints: []
+  objectSpeed: 3
+  checkPointsOrderPrefab: {fileID: 5157521230044610960, guid: 2d5f48537d2e45746a87150503e75321,
+    type: 3}
+  checkPointsWaitPrefab: {fileID: 7700352890960757686, guid: 629908e19df0d164d9d8e937c8431fd6,
+    type: 3}
+  checkPointsCollectPrefab: {fileID: 7071739839733749663, guid: 3f464cd27445c214a9130ec2900e62e8,
+    type: 3}
+  checkPointsLeavePrefab: {fileID: 3885566170340633999, guid: 8a9a68769eb24ca449ab52d5fa2a3aca,
+    type: 3}
+  rotationSpeed: 3
+  patienceSlider: {fileID: 0}
+  newRecipe: {fileID: 0}
+  order: {fileID: 0}
+  recipePrefab: {fileID: 8929750864745965729, guid: 4a7d27d6701d2b345a6ed4c2abff2ffb,
+    type: 3}
+  state: 0
+--- !u!136 &1250462300520150159
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125380575012680724}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.0458622
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.5571966, z: 0}
 --- !u!1 &8011857888571333519
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,58 +399,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ac312230649dd4fb356856b3a73bdb, type: 3}
---- !u!1 &7331940256878665461 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 39ac312230649dd4fb356856b3a73bdb,
-    type: 3}
-  m_PrefabInstance: {fileID: 7566365136494961572}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6736141242793899690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7331940256878665461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d4f89f2b70ef84daf502a4ac5310ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orderPoints: []
-  waitPoints: []
-  collectPoints: []
-  leavePoints: []
-  objectSpeed: 3
-  checkPointsOrderPrefab: {fileID: 5157521230044610960, guid: 2d5f48537d2e45746a87150503e75321,
-    type: 3}
-  checkPointsWaitPrefab: {fileID: 7700352890960757686, guid: 629908e19df0d164d9d8e937c8431fd6,
-    type: 3}
-  checkPointsCollectPrefab: {fileID: 7071739839733749663, guid: 3f464cd27445c214a9130ec2900e62e8,
-    type: 3}
-  checkPointsLeavePrefab: {fileID: 3885566170340633999, guid: 8a9a68769eb24ca449ab52d5fa2a3aca,
-    type: 3}
-  rotationSpeed: 3
-  patienceSlider: {fileID: 0}
-  newRecipe: {fileID: 0}
-  order: {fileID: 11400000, guid: 9bcb3521e7c7e3c4786ec3d25794730b, type: 2}
-  recipePrefab: {fileID: 8929750864745965729, guid: 4a7d27d6701d2b345a6ed4c2abff2ffb,
-    type: 3}
-  state: 0
---- !u!136 &4206830115168915351
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7331940256878665461}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2.0458622
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.5571966, z: 0}
 --- !u!4 &7965628031376278607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 39ac312230649dd4fb356856b3a73bdb,

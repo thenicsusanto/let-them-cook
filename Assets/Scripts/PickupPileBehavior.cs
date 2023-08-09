@@ -16,7 +16,29 @@ public class PickupPileBehavior : XRBaseInteractable
 
         // Select object into same interactor
         interactionManager.SelectEnter(args.interactorObject, objectInteractable);
-
+        
         base.OnSelectEntered(args);
+        
+        //Check if I can just use events in VR (select entered selectenntereventargs)
+        if (grabbableObject.name == "Lettuce")
+        {
+            TheAudioManager.Instance.PlaySFX("Lettuce");
+        }
+        else if(grabbableObject.name == "Cheese")
+        {
+            TheAudioManager.Instance.PlaySFX("Cheese");
+        }
+        else if(grabbableObject.name == "Burger" || grabbableObject.name == "TopBun")
+        {
+            TheAudioManager.Instance.PlaySFX("GrabWeapon");
+        }
+        else if(grabbableObject.name == "Patty")
+        {
+            TheAudioManager.Instance.PlaySFX("MeatSlap");
+        }
+        else
+        {
+            TheAudioManager.Instance.PlaySFX("GrabWeapon");
+        }
     }
 }

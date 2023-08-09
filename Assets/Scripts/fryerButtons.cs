@@ -16,13 +16,13 @@ public class fryerButtons : MonoBehaviour
             {
                 transform.position = new Vector3(-9.91f, -0.251f, 0.19f);
                 fryerBasket.GetComponent<fryerBasket>().pushedDown();
-                TheAudioManager.Instance.PlaySFX("ButtonPress");
+                TheAudioManager.Instance.PlaySFX("ButtonPressed");
             }
             else if(greenButton)
             {
                 transform.position = new Vector3(-9.91f, -0.61f, 0.46f);
                 fryerBasket.GetComponent<fryerBasket>().released();
-                TheAudioManager.Instance.PlaySFX("ButtonPress");
+                TheAudioManager.Instance.PlaySFX("ButtonPressed");
             }
         }
     }
@@ -34,9 +34,11 @@ public class fryerButtons : MonoBehaviour
             if (!greenButton)
             {
                 transform.position = new Vector3(-0.0776000023f, 1.0273422f, 0.343100011f);
+                TheAudioManager.Instance.PlaySFX("ButtonReleased");
             }
             else
                 transform.position = new Vector3(-9.84000015f, -0.251403809f, 0.189999998f);
+                TheAudioManager.Instance.PlaySFX("ButtonReleased");
         }
     }
 }

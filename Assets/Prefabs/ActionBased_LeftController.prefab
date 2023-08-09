@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4274509180640826986}
   - component: {fileID: 8777081805090693095}
   - component: {fileID: 8426857941834652336}
+  - component: {fileID: 5540367777779959342}
   m_Layer: 0
   m_Name: ActionBased_LeftController
   m_TagString: Untagged
@@ -69,6 +70,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   primaryButton: {fileID: -4084014799535200556, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+--- !u!114 &5540367777779959342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262040643694524109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ca479d09d777d04b99d6f04d41fa2e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PokeAttachPoint: {fileID: 1976755653148453592}
 --- !u!1001 &9154251449245303350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -138,6 +152,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 419eb638418004a4097eea2d393d761c, type: 3}
+--- !u!4 &1976755653148453592 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1989262850862372626, guid: 419eb638418004a4097eea2d393d761c,
+    type: 3}
+  m_PrefabInstance: {fileID: 9154251449245303350}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8683175705193899485 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 419eb638418004a4097eea2d393d761c,

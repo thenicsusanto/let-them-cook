@@ -25,6 +25,7 @@ public class HotDogEnemy : MonoBehaviour
         {
             toFire = false;
             GameObject newProjectile = Instantiate(attackDog, transform.position, Quaternion.identity);
+            TheAudioManager.Instance.PlaySFX("HotDogShot");
             StartCoroutine(shootHotDog());
         }
     }
@@ -55,12 +56,14 @@ public class HotDogEnemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Pan"))
         {
             Instantiate(enemyDeathParticle, transform.position, Quaternion.identity);
+            TheAudioManager.Instance.PlaySFX("PanHit");
             Destroy(gameObject, 0.6f);
         }
 
         if (collision.gameObject.CompareTag("Stab"))
         {
             Instantiate(enemyDeathParticle, transform.position, Quaternion.identity);
+            TheAudioManager.Instance.PlaySFX("Stab");
             Destroy(gameObject);
         }
     }

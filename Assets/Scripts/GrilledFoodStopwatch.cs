@@ -28,7 +28,7 @@ public class GrilledFoodStopwatch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (stopwatchActive == true && currentTime < timeToOvercooked)
+        if (stopwatchActive == true && GameManager.Instance.grillOn && currentTime < timeToOvercooked)
         {
             currentTime += Time.deltaTime;
             CheckFoodState();

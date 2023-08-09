@@ -22,5 +22,10 @@ public class DetectCollision : MonoBehaviour
         {
             TheAudioManager.Instance.PlaySFX("MetalDrop");
         }
+
+        if(collision.gameObject.CompareTag("Pan"))
+        {
+            TheAudioManager.Instance.PlaySFX("PanDrop");
+        }
     }
 }

@@ -6,4 +6,6 @@ public class GameManager : Singleton<GameManager>
 {
     public GameObject readyFoodObject;
     public int reputation = 3;
+
+    public bool grillOn;
 }

@@ -5,8 +5,8 @@ using System;
 
 public class TheAudioManager : Singleton<TheAudioManager>
 {
-    public Sound[] musicSounds, sfxSounds;
-    public AudioSource musicSource, sfxSource;
+    public Sound[] musicSounds, sfxSounds, sfxLoopedSounds;
+    public AudioSource musicSource, sfxSource, sfxLoopedSource;
 
     private void Start()
     {
@@ -39,6 +39,20 @@ public class TheAudioManager : Singleton<TheAudioManager>
         else
         {
             sfxSource.PlayOneShot(s.clip);
+        }
+    }
+
+    public void PlayLoopedSFX(string name)
+    {
+        Sound s = Array.Find(sfxLoopedSounds, x => x.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("Sound Not Found");
+        }
+        else
+        {
+            sfxLoopedSource.PlayOneShot(s.clip);
         }
     }
 }

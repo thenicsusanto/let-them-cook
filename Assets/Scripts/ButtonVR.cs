@@ -12,6 +12,8 @@ public class ButtonVR : MonoBehaviour
     GameObject presser;
     bool isPressed;
 
+    public ParticleSystem grillSmoke;
+
     private void Start()
     {
         isPressed = false;
@@ -21,7 +23,11 @@ public class ButtonVR : MonoBehaviour
     {
         if(!isPressed)
         {
-            button.transform.localPosition = new Vector3(0, 0.003f, 0);
+            if(transform.name != "StartGrillButton" && transform.name != "StopGrillButton")
+            {
+                button.transform.localPosition = new Vector3(0, 0.003f, 0);
+            }
+            
             presser = other.gameObject;
             onPress.Invoke();
             isPressed = true;
@@ -32,7 +38,10 @@ public class ButtonVR : MonoBehaviour
     {
         if(other.gameObject == presser)
         {
-            button.transform.localPosition = new Vector3(0, 0.015f, 0);
+            if (transform.name != "StartGrillButton" && transform.name != "StopGrillButton")
+            {
+                button.transform.localPosition = new Vector3(0, 0.015f, 0);
+            }
             onRelease.Invoke();
             isPressed = false;
         }
@@ -41,5 +50,17 @@ public class ButtonVR : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void StartGrill()
+    {
+        TheAudioManager.Instance.PlayLoopedSFX("Grill");
+        grillSmoke.Play();
+    }
+
+    public void StopGrill()
+    {
+        TheAudioManager.Instance.sfxLoopedSource.Stop();
+        grillSmoke.Stop();
     }
 }

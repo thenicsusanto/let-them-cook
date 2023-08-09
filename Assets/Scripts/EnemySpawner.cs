@@ -40,7 +40,6 @@ public class EnemySpawner : MonoBehaviour
 
             int enemyLocation = Random.Range(0, 2);
 
-            enemyToSpawn = 1;
             if (enemyToSpawn == 0)
             {
                 Instantiate(enemy.burgerPrefab, enemy.burgers[enemyLocation].position, Quaternion.identity);
@@ -49,6 +48,7 @@ public class EnemySpawner : MonoBehaviour
             else
             {
                 Instantiate(enemy.hotdogPrefab, enemy.hotdogs[enemyLocation].position, Quaternion.identity);
+                TheAudioManager.Instance.PlaySFX("SpawnEnemyHotDog");
             }
 
             //GameObject newCustomer = Instantiate(enemyPrefabList[enemyToSpawn], enemySpawnPoint[spawnIndex].position, Quaternion.identity);
