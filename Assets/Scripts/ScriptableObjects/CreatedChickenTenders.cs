@@ -23,7 +23,7 @@ public class CreatedChickenTenders : MonoBehaviour
         
     }
 
-    public void ChickenEntered()
+    public void ChickenEntered(SelectEnterEventArgs args)
     {
         tenderAmount++;
         //chickenTenders.Add(args.interactableObject.transform.gameObject);
@@ -35,9 +35,12 @@ public class CreatedChickenTenders : MonoBehaviour
         //{
         //    state = args.interactableObject.transform.GetComponentInChildren<GrilledFoodStopwatch>().state.ToString();
         //}
+        args.interactableObject.transform.GetComponentInChildren<Rigidbody>().isKinematic = true;
+        args.interactableObject.transform.GetComponentInChildren<BoxCollider>().enabled = false;
+        args.interactableObject.transform.GetComponent<BoxCollider>().enabled = false;
     }
 
-    public void ChickenExited()
+    public void ChickenExited(SelectEnterEventArgs args)
     {
         tenderAmount--;
         //chickenTenders.Remove(args.interactableObject.transform.gameObject);
@@ -45,10 +48,13 @@ public class CreatedChickenTenders : MonoBehaviour
         //{
         //    if(args.interactableObject.transform.GetComponentInChildren<GrilledFoodStopwatch>().state.ToString() != "grilled")
         //    {
-                
+
         //    }
         //}
         //state = "";
+        args.interactableObject.transform.GetComponentInChildren<Rigidbody>().isKinematic = true;
+        args.interactableObject.transform.GetComponentInChildren<BoxCollider>().enabled = false;
+        args.interactableObject.transform.GetComponent<BoxCollider>().enabled = false;
     }
 
 }

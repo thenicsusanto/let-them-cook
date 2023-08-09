@@ -332,6 +332,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  speed: 0
+  deathEffect: {fileID: 5091803388915433793, guid: e06943b88472d41589f6524172e86578,
+    type: 3}
 --- !u!54 &-4052094757256062895
 Rigidbody:
   m_ObjectHideFlags: 0

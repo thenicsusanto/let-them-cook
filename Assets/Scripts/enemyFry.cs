@@ -37,14 +37,14 @@ public class enemyFry : MonoBehaviour
         toFire = true;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("rightHand") && player.GetComponent<Movement>().middleThreeFingers && player.GetComponent<Movement>().indexFinger)
-        {
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("rightHand") && player.GetComponent<Movement>().middleThreeFingers && player.GetComponent<Movement>().indexFinger)
+    //    {
             
-            Destroy(gameObject);
-        }
-    }
+    //        Destroy(gameObject);
+    //    }
+    //}
 
     private void OnCollisionEnter(Collision collision)
     {

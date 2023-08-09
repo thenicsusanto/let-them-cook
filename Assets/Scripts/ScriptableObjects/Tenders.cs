@@ -27,7 +27,7 @@ public class Tenders : OrderItem
         else
         {
             Debug.Log("You got the wrong chicken tender number");
-            GameManager.Instance.reputation--;
+            GameManager.Instance.rating--;
         }
     }
 }

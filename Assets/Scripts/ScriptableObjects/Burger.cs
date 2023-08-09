@@ -26,7 +26,7 @@ public class Burger : OrderItem
         else
         {
             Debug.Log("Your burger is trash!");
-            GameManager.Instance.reputation--;
+            GameManager.Instance.rating--;
         }
     }
 

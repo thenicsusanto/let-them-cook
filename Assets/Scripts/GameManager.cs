@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public GameObject readyFoodObject;
-    public int reputation = 3;
+    public int rating = 3;
 
     public bool grillOn;
 }

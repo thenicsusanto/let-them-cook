@@ -6,7 +6,7 @@ public class HotDogEnemy : MonoBehaviour
 {
     public GameObject attackDog;
     public GameObject player;
-    public ParticleSystem enemyDeathParticle;
+    public ParticleSystem deathEffect;
     bool toFire;
 
     // Start is called before the first frame update
@@ -32,7 +32,7 @@ public class HotDogEnemy : MonoBehaviour
 
     IEnumerator shootHotDog()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(7f);
         toFire = true;
     }
 
@@ -55,14 +55,14 @@ public class HotDogEnemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Pan"))
         {
-            Instantiate(enemyDeathParticle, transform.position, Quaternion.identity);
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
             TheAudioManager.Instance.PlaySFX("PanHit");
             Destroy(gameObject, 0.6f);
         }
 
         if (collision.gameObject.CompareTag("Stab"))
         {
-            Instantiate(enemyDeathParticle, transform.position, Quaternion.identity);
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
             TheAudioManager.Instance.PlaySFX("Stab");
             Destroy(gameObject);
         }

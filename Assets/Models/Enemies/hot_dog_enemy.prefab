@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6291125969898884031}
   - component: {fileID: 4651941463564506937}
   - component: {fileID: -4140914786671880803}
+  - component: {fileID: -3323838809767903625}
   m_Layer: 0
   m_Name: hot_dog_enemy
   m_TagString: Untagged
@@ -97,10 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832c9b1332d7d4426ba573fedb19ab3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDog: {fileID: 5974533983300958767, guid: bf714faf936884bc2ac47ef9ce19119e,
+  attackDog: {fileID: 9155539563325759292, guid: ebb35928a94f3814aa57ffc46f0e42d6,
     type: 3}
   player: {fileID: 0}
-  enemyDeathParticle: {fileID: 5091803388915433793, guid: e06943b88472d41589f6524172e86578,
+  deathEffect: {fileID: 5091803388915433793, guid: e06943b88472d41589f6524172e86578,
     type: 3}
 --- !u!54 &-4140914786671880803
 Rigidbody:
@@ -118,3 +119,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &-3323838809767903625
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5498452921624390250}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 160.76384
+  m_Height: 675.8029
+  m_Direction: 1
+  m_Center: {x: -19.96617, y: 230.65097, z: 89.366356}

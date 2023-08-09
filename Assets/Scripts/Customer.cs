@@ -57,7 +57,7 @@ public class Customer : MonoBehaviour
             waitPoints.Add(checkPointsWaitPrefab.transform.GetChild(i));
         }
 
-        for(int i = 0; i < checkPointsCollectPrefab.transform.childCount; i++)
+        for (int i = 0; i < checkPointsCollectPrefab.transform.childCount; i++)
         {
             collectPoints.Add(checkPointsCollectPrefab.transform.GetChild(i));
         }
@@ -76,27 +76,31 @@ public class Customer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+<<<<<<< Updated upstream
         if (Input.GetKey(KeyCode.J))
             TakeOrder();
 
         if(state == State.WalkingToOrder)
+=======
+        if (state == State.WalkingToOrder)
+>>>>>>> Stashed changes
         {
             MoveCustomerToOrder();
         }
-        else if(state == State.WalkingToWait)
+        else if (state == State.WalkingToWait)
         {
             MoveCustomerToWait();
         }
-        else if(state == State.WalkingToCollect)
+        else if (state == State.WalkingToCollect)
         {
             MoveCustomerToCollect();
         }
-        else if(state == State.WalkingToLeave)
+        else if (state == State.WalkingToLeave)
         {
             MoveCustomerToLeave();
         }
 
-        if(state == State.WaitingForFood || state == State.WaitingToOrder)
+        if (state == State.WaitingForFood || state == State.WaitingToOrder)
         {
             //rotate us over time according to speed until we are in the required rotation
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(new Vector3(0, 180, 0)), Time.deltaTime * rotationSpeed);
@@ -106,23 +110,23 @@ public class Customer : MonoBehaviour
             RotateCustomer();
         }
 
-        if(patienceSlider.GetComponent<Image>().fillAmount > 0.97 && patience) {
+        if (patienceSlider.GetComponent<Image>().fillAmount > 0.97 && patience)
+        {
             patience = false;
             //Destroy(newRecipe);
             newRecipe = null;
-            Movement.customersLost += 1;
             //insert angry leaving sound
         }
-        
+
     }
 
     #region Movement
     void MoveCustomerToOrder()
     {
-        if(transform.position == nextPoint.position)
+        if (transform.position == nextPoint.position)
         {
             nextPointIndex++;
-            if(nextPointIndex >= orderPoints.Count)
+            if (nextPointIndex >= orderPoints.Count)
             {
                 state = State.WaitingToOrder;
 
@@ -199,7 +203,7 @@ public class Customer : MonoBehaviour
             {
                 //GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[0]
                 //if (order.menuItems[0].CompareFood())
-                
+
                 //Compare Order code below
                 Destroy(gameObject);
                 GameManager.Instance.readyFoodObject = null;
@@ -231,12 +235,12 @@ public class Customer : MonoBehaviour
         newRecipe = Instantiate(recipePrefab, receiptSpawnPoint.position, Quaternion.identity);
         newRecipe.GetComponent<Receipt>().nameText.text = order.customerName;
         newRecipe.GetComponent<Receipt>().orderNumberText.text = order.orderNumber;
-        for (int i=0; i<order.menuItems.Count; i++)
+        for (int i = 0; i < order.menuItems.Count; i++)
         {
-            if(i == 0) newRecipe.GetComponent<Receipt>().order1.text = order.menuItems[0].CheckOrders();
-            if(i == 1) newRecipe.GetComponent<Receipt>().order2.text = order.menuItems[1].CheckOrders();
-            if(i == 2) newRecipe.GetComponent<Receipt>().order3.text = order.menuItems[2].CheckOrders();
-            if(i == 3) newRecipe.GetComponent<Receipt>().order4.text = order.menuItems[3].CheckOrders();
+            if (i == 0) newRecipe.GetComponent<Receipt>().order1.text = order.menuItems[0].CheckOrders();
+            if (i == 1) newRecipe.GetComponent<Receipt>().order2.text = order.menuItems[1].CheckOrders();
+            if (i == 2) newRecipe.GetComponent<Receipt>().order3.text = order.menuItems[2].CheckOrders();
+            if (i == 3) newRecipe.GetComponent<Receipt>().order4.text = order.menuItems[3].CheckOrders();
         }
         //Write code for customer to walk back and wait for food
         state = State.WalkingToWait;
@@ -245,15 +249,16 @@ public class Customer : MonoBehaviour
 
         patienceSlider.GetComponent<Image>().fillAmount = 0;
         patience = true;
-        StartCoroutine(patienceTimer(30));
-        
+        StartCoroutine(patienceTimer(45));
+
     }
 
     IEnumerator patienceTimer(float sec)
     {
-        
+
         float timer = 0;
-        while((timer) < sec && patience) {
+        while ((timer) < sec && patience)
+        {
             timer += Time.deltaTime;
             patienceSlider.GetComponent<Image>().fillAmount = (timer) / sec;
             yield return null;
@@ -271,11 +276,11 @@ public class Customer : MonoBehaviour
 
     public int ReorderFoodList(OrderItem value1, OrderItem value2)
     {
-        if(value1.value < value2.value)
+        if (value1.value < value2.value)
         {
             return -1;
         }
-        else if(value1.value > value2.value)
+        else if (value1.value > value2.value)
         {
             return 1;
         }

@@ -37,6 +37,7 @@ public class CreatedHotDog : MonoBehaviour
         {
             hasMustard = true;
         }
+        args.interactableObject.transform.GetComponent<Collider>().enabled = false;
     }
 
     public void HotDogExited()

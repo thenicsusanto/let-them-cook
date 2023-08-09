@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Oculus.Interaction;
 using Oculus.Platform.Models;
 using UnityEngine;
 using UnityEngine.AI;
@@ -47,11 +48,7 @@ public class burgerEnemyAI : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            player.GetComponent<Movement>().health -= 10;
-
-        }
+        
         //else
         //{
         //    EnemyJump();
@@ -63,6 +60,7 @@ public class burgerEnemyAI : MonoBehaviour
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             TheAudioManager.Instance.PlaySFX("PanHit");
             Destroy(gameObject, 0.6f);
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
 
         }
 
@@ -70,6 +68,17 @@ public class burgerEnemyAI : MonoBehaviour
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             TheAudioManager.Instance.PlaySFX("Stab");
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<Movement>().health -= 9;
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

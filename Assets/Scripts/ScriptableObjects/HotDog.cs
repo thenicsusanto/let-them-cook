@@ -24,7 +24,7 @@ public class HotDog : OrderItem
         else
         {
             Debug.Log("You are wrong!");
-            GameManager.Instance.reputation--;
+            GameManager.Instance.rating--;
         }
     }
 
