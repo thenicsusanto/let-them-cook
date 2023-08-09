@@ -14,18 +14,6 @@ public class BurgerBoxBehavior : MonoBehaviour
     [SerializeField] private Animator anim;
     bool isOpen;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private bool TriggerActionDetect()
     {
         if(rightTriggerAction.action.WasPressedThisFrame() || leftTriggerAction.action.WasPressedThisFrame())

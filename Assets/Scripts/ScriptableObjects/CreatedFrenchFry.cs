@@ -5,6 +5,12 @@ using UnityEngine;
 public class CreatedFrenchFry : MonoBehaviour
 {
     int totalFries;
+    public int value = 2;
+
+    private void Start()
+    {
+        value = 2;
+    }
 
     private void OnCollisionEnter(Collision collision)
     {

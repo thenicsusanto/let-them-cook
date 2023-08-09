@@ -423,7 +423,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6404294423868622590}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2157, y: 0.895, z: -1.325}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.257611, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -665,6 +665,7 @@ MonoBehaviour:
   hasKetchup: 0
   hasMustard: 0
   state: 
+  value: 0
 --- !u!1 &7549271320042862624
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,5 +43,7 @@ public class CreatedHotDog : MonoBehaviour
     {
         Debug.Log("Exited");
         state = "";
+        hasKetchup = false;
+        hasMustard = false;
     }
 }

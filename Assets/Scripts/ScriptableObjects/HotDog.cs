@@ -14,15 +14,17 @@ public class HotDog : OrderItem
     {
         value = 1;
     }
-    public override void CompareHotDog(HotDog dish)
+    public override void CompareHotDog(CreatedHotDog dish)
     {
-        if(hasKetchup && dish.hasKetchup || !hasKetchup && !dish.hasKetchup)
+        if (hasKetchup && dish.hasKetchup || !hasKetchup && !dish.hasKetchup || dish.state == "grilled")
         {
-            Debug.Log("Condiments are correct");
+            Debug.Log("Everything is correct");
+            //Write reward code for completing perfect order
         }
         else
         {
-            Debug.Log("Condiments are wrong");
+            Debug.Log("You are wrong!");
+            GameManager.Instance.reputation--;
         }
     }
 
@@ -30,7 +32,7 @@ public class HotDog : OrderItem
     {   
         if(hasKetchup)
         {
-            ketchup = "with ketchup";
+            ketchup = " with ketchup";
         }
         else
         {
@@ -39,7 +41,7 @@ public class HotDog : OrderItem
 
         if(hasMustard)
         {
-            mustard = "with mustard";
+            mustard = " with mustard";
         }
         else
         {

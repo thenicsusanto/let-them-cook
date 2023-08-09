@@ -31,7 +31,7 @@ public class FryAttack : MonoBehaviour
             Mathf.Abs(player.transform.position.z - transform.position.z) < 0.1f &&
             Mathf.Abs(player.transform.position.y - transform.position.y) < 0.1f)
         {
-            player.GetComponent<Movement>().health -= 20;
+            player.GetComponentInChildren<Movement>().health -= 20;
             Destroy(this.gameObject);
         }
 

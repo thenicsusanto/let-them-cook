@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Order", menuName = "Order/Burger")]
 public class Burger : OrderItem
 {
+    //base.foodName = "Burger";
     public bool hasCheese;
     public bool hasLettuce;
     string cheese = "";
@@ -17,13 +18,15 @@ public class Burger : OrderItem
 
     public override void CompareBurger(CreatedBurger dish)
     {
-        if(hasCheese && dish.hasCheese)
+        if((hasCheese && dish.hasCheese) && (hasLettuce && dish.hasLettuce) && dish.state == "grilled")
         {
             Debug.Log("Cheese is correct");
+            //Write perfect order code
         }
-        else if(hasLettuce && dish.hasLettuce)
+        else
         {
-            Debug.Log("Lettuce is correct");
+            Debug.Log("Your burger is trash!");
+            GameManager.Instance.reputation--;
         }
     }
 
@@ -31,11 +34,11 @@ public class Burger : OrderItem
     {
         if (hasCheese)
         {
-            cheese = "with cheese";
+            cheese = " with cheese";
         }
         if (hasLettuce)
         {
-            lettuce = "with lettuce";
+            lettuce = " with lettuce";
         }
 
         return "1x " + "Hotdog " + cheese + lettuce;

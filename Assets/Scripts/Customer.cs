@@ -91,11 +91,21 @@ public class Customer : MonoBehaviour
         {
             MoveCustomerToLeave();
         }
-        RotateCustomer();
+
+        if(state == State.WaitingForFood || state == State.WaitingToOrder)
+        {
+            //rotate us over time according to speed until we are in the required rotation
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(new Vector3(0, 180, 0)), Time.deltaTime * rotationSpeed);
+        }
+        else
+        {
+            RotateCustomer();
+        }
 
         if(patienceSlider.GetComponent<Image>().fillAmount > 0.97 && patience) {
             patience = false;
-            Destroy(newRecipe.gameObject);
+            Destroy(newRecipe);
+            newRecipe = null;
             //insert angry leaving sound
         }
         
@@ -110,6 +120,7 @@ public class Customer : MonoBehaviour
             if(nextPointIndex >= orderPoints.Count)
             {
                 state = State.WaitingToOrder;
+
                 return;
             }
             nextPoint = orderPoints[nextPointIndex];
@@ -166,8 +177,7 @@ public class Customer : MonoBehaviour
         GameManager.Instance.readyFoodObject.transform.SetParent(gameObject.transform);
         GameManager.Instance.readyFoodObject.transform.localPosition = Vector3.zero;
         GameManager.Instance.readyFoodObject.GetComponentInChildren<MeshRenderer>().enabled = false;
-        //GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag.Sort();
-        order.menuItems.Sort(ReorderFoodList);
+        order.menuItems.Sort((a, b) => string.Compare(a.foodName, b.foodName));
         Debug.Log("Sorted...");
         CompareOrder();
         //Write code below for customer to rate order and affect rating/reputation of Jerry's kitchen
@@ -204,7 +214,7 @@ public class Customer : MonoBehaviour
         direction = (nextPoint.position - transform.position).normalized;
 
         //create the rotation we need to be in to look at the target
-        //lookRotation = Quaternion.LookRotation(direction);
+        lookRotation = Quaternion.LookRotation(direction);
 
         //rotate us over time according to speed until we are in the required rotation
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
@@ -213,9 +223,16 @@ public class Customer : MonoBehaviour
 
     public void TakeOrder()
     {
-        newRecipe = Instantiate(recipePrefab, new Vector3(-0.0140008926f, 0.843999982f, 0.995999992f), Quaternion.Euler(new Vector3(90, 0, 0)));
-        newRecipe.GetComponent<Receipt>().order1.text = order.menuItems[0].CheckOrders();
-        //newRecipe.GetComponent<Receipt>().order2.text = order.menuItems[1].CheckOrders();
+        newRecipe = Instantiate(recipePrefab, new Vector3(0.18f, 0.844f, 0.996f), Quaternion.identity);
+        newRecipe.GetComponent<Receipt>().nameText.text = order.customerName;
+        newRecipe.GetComponent<Receipt>().orderNumberText.text = order.orderNumber;
+        for (int i=0; i<order.menuItems.Count; i++)
+        {
+            if(i == 0) newRecipe.GetComponent<Receipt>().order1.text = order.menuItems[0].CheckOrders();
+            if(i == 1) newRecipe.GetComponent<Receipt>().order2.text = order.menuItems[1].CheckOrders();
+            if(i == 2) newRecipe.GetComponent<Receipt>().order3.text = order.menuItems[2].CheckOrders();
+            if(i == 3) newRecipe.GetComponent<Receipt>().order4.text = order.menuItems[3].CheckOrders();
+        }
         //Write code for customer to walk back and wait for food
         state = State.WalkingToWait;
         nextPoint = waitPoints[0];
@@ -259,31 +276,43 @@ public class Customer : MonoBehaviour
         }
         return 0;
     }
+    //public int ReorderComparedFoodList(GameObject obj1, GameObject obj2)
+    //{
+    //    if (obj1.GetComponent < value2.value)
+    //    {
+    //        return -1;
+    //    }
+    //    else if (value1.value > value2.value)
+    //    {
+    //        return 1;
+    //    }
+    //    return 0;
+    //}
 
     void CompareOrder()
     {
         for (int i = 0; i < order.menuItems.Count; i++)
         {
-            //if (order.menuItems[i].value == 0 && GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i].value == 0)
-            //{
-            //    Tenders comparedItem = (Tenders)GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i];
-            //    order.menuItems[i].CompareTenders(comparedItem);
-            //}
-            //else if (order.menuItems[i].value == 1 && GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i].value == 1)
-            //{
-            //    HotDog comparedItem = (HotDog)GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i];
-            //    order.menuItems[i].CompareHotDog(comparedItem);
-            //}
-            //else if (order.menuItems[i].value == 2 && GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i].value == 2)
-            //{
-            //    FrenchFry comparedItem = (FrenchFry)GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i];
-            //    order.menuItems[i].CompareFrenchFries(comparedItem);
-            //}
-            //else if (order.menuItems[i].value == 3 && GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i].value == 3)
-            //{
-            //    //CreatedBurger comparedItem = GameManager.Instance.readyFoodObject.GetComponent<FoodBag>().foodInBag[i];
-            //    //order.menuItems[i].CompareBurger(comparedItem);
-            //}
+            if (order.menuItems[i].foodName == "ChickenTenders" && GameManager.Instance.readyFoodObject.GetComponent<MealBag>().foodInBag[i].name.Contains("Chicken"))
+            {
+                CreatedChickenTenders comparedItem = GameManager.Instance.readyFoodObject.GetComponent<MealBag>().foodInBag[i].GetComponent<CreatedChickenTenders>();
+                order.menuItems[i].CompareTenders(comparedItem);
+            }
+            else if (order.menuItems[i].foodName == "HotDog" && GameManager.Instance.readyFoodObject.GetComponent<MealBag>().foodInBag[i].name.Contains("Hot"))
+            {
+                CreatedHotDog comparedItem = GameManager.Instance.readyFoodObject.GetComponent<MealBag>().foodInBag[i].GetComponent<CreatedHotDog>();
+                order.menuItems[i].CompareHotDog(comparedItem);
+            }
+            else if (order.menuItems[i].foodName == "FrenchFry" && GameManager.Instance.readyFoodObject.GetComponent<MealBag>().foodInBag[i].name.Contains("French"))
+            {
+                CreatedFrenchFry comparedItem = GameManager.Instance.readyFoodObject.GetComponent<MealBag>().foodInBag[i].GetComponent<CreatedFrenchFry>();
+                order.menuItems[i].CompareFrenchFries(comparedItem);
+            }
+            else if (order.menuItems[i].foodName == "Burger" && GameManager.Instance.readyFoodObject.GetComponent<MealBag>().foodInBag[i].name.Contains("Burger"))
+            {
+                CreatedBurger comparedItem = GameManager.Instance.readyFoodObject.GetComponent<MealBag>().foodInBag[i].GetComponent<CreatedBurger>();
+                order.menuItems[i].CompareBurger(comparedItem);
+            }
         }
     }
 }

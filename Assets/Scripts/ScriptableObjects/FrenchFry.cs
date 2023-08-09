@@ -15,13 +15,13 @@ public class FrenchFry : OrderItem
         value = 2;
     }
 
-    public override void CompareFrenchFries(FrenchFry dish)
-    {
-        if (dish.orderSize == orderSize)
-        {
-            Debug.Log("Ordersize matches");
-        }
-    }
+    //public override void CompareFrenchFries(FrenchFry dish)
+    //{
+    //    if (dish.orderSize == orderSize)
+    //    {
+    //        Debug.Log("Ordersize matches");
+    //    }
+    //}
 }
 
 public enum OrderSize

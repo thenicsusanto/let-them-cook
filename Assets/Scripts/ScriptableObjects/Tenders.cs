@@ -6,7 +6,7 @@ using UnityEngine;
 public class Tenders : OrderItem
 {
     public int tenderAmount;
-
+    
     private void OnEnable()
     {
         value = 0;
@@ -17,11 +17,17 @@ public class Tenders : OrderItem
         return tenderAmount.ToString() + "x" + " Chicken Tenders";
     }
 
-    public override void CompareTenders(Tenders dish)
+    public override void CompareTenders(CreatedChickenTenders dish)
     {
-        if(dish.tenderAmount == tenderAmount)
+        if(tenderAmount == dish.tenderAmount)
         {
-            Debug.Log("Tenders Amount matches");
+            Debug.Log("Perfect tender order!");
+            //Write reward code for completing perfect order
+        }
+        else
+        {
+            Debug.Log("You got the wrong chicken tender number");
+            GameManager.Instance.reputation--;
         }
     }
 }

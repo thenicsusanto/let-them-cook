@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 3988672168923047074}
   - component: {fileID: 3988672168923047100}
   - component: {fileID: 3988672168923047075}
+  - component: {fileID: -758008546956658535}
   m_Layer: 0
   m_Name: fry_box
   m_TagString: FoodBag
@@ -425,3 +426,16 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &-758008546956658535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4295297037525822131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 485266e3bc63b5141a95f2bac4e522a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 2
