@@ -41,4 +41,9 @@ public class PickupPileBehavior : XRBaseInteractable
             TheAudioManager.Instance.PlaySFX("GrabWeapon");
         }
     }
+
+    public void ChangeGrabbedObject(GameObject box)
+    {
+        grabbableObject = box;
+    }
 }

@@ -52,7 +52,8 @@ public class TheAudioManager : Singleton<TheAudioManager>
         }
         else
         {
-            sfxLoopedSource.PlayOneShot(s.clip);
+            sfxLoopedSource.clip = s.clip;
+            sfxLoopedSource.Play();
         }
     }
 }

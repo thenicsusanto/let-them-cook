@@ -16,10 +16,13 @@ public class CreatedBurger : MonoBehaviour
     {
         value = 3;
     }
-    public void HotDogEntered(SelectEnterEventArgs args)
+    public void BurgerEntered(SelectEnterEventArgs args)
     {
         Debug.Log(args.interactableObject.transform.name);
-        state = args.interactableObject.transform.GetComponentInChildren<GrilledFoodStopwatch>().state.ToString();
+        if(args.interactableObject.transform.GetComponentInChildren<GrilledFoodStopwatch>() != null )
+        {
+            state = args.interactableObject.transform.GetComponentInChildren<GrilledFoodStopwatch>().state.ToString();
+        }
         for(int i=0; i<args.interactableObject.transform.childCount; i++)
         {
             if(args.interactableObject.transform.name.Contains("Lettuce"))
@@ -31,5 +34,8 @@ public class CreatedBurger : MonoBehaviour
                 hasCheese = true;
             }
         }
+        args.interactableObject.transform.GetComponentInChildren<Rigidbody>().isKinematic = true;
+        args.interactableObject.transform.GetComponentInChildren<BoxCollider>().enabled = false;
+        args.interactableObject.transform.GetComponent<BoxCollider>().enabled = false;
     }
 }

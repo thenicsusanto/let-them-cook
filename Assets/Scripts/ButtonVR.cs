@@ -55,6 +55,8 @@ public class ButtonVR : MonoBehaviour
     public void StartGrill()
     {
         TheAudioManager.Instance.PlayLoopedSFX("Grill");
+        Debug.Log("start grill");
+        GameManager.Instance.grillOn = true;
         grillSmoke.Play();
     }
 
@@ -62,5 +64,8 @@ public class ButtonVR : MonoBehaviour
     {
         TheAudioManager.Instance.sfxLoopedSource.Stop();
         grillSmoke.Stop();
+        GameManager.Instance.grillOn = false;
+        Debug.Log("stop grill");
+
     }
 }

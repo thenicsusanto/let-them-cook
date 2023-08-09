@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1250462300520150159}
   m_Layer: 0
   m_Name: Customer
-  m_TagString: Untagged
+  m_TagString: Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,6 +62,8 @@ MonoBehaviour:
     type: 3}
   rotationSpeed: 3
   patienceSlider: {fileID: 0}
+  receiptSpawnPoint: {fileID: 5712027591464767871, guid: 10aa9fb8ccd9f474fafb52bcb423b723,
+    type: 3}
   newRecipe: {fileID: 0}
   order: {fileID: 0}
   recipePrefab: {fileID: 8929750864745965729, guid: 4a7d27d6701d2b345a6ed4c2abff2ffb,
@@ -291,6 +293,7 @@ MonoBehaviour:
     type: 3}
   rotationSpeed: 3
   patienceSlider: {fileID: 0}
+  receiptSpawnPoint: {fileID: 0}
   newRecipe: {fileID: 0}
   order: {fileID: 11400000, guid: 9bcb3521e7c7e3c4786ec3d25794730b, type: 2}
   recipePrefab: {fileID: 8929750864745965729, guid: 4a7d27d6701d2b345a6ed4c2abff2ffb,

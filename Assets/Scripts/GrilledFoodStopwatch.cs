@@ -45,6 +45,7 @@ public class GrilledFoodStopwatch : MonoBehaviour
                 if(transform.GetChild(i).GetComponent<Renderer>() != null)
                 {
                     transform.GetChild(i).GetComponent<Renderer>().material = undercookedMat;
+                    Debug.Log(transform.GetChild(i).name);
                 }
             }
             state = CookedState.undercooked;            

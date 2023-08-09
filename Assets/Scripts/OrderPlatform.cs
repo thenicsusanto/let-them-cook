@@ -26,7 +26,7 @@ public class OrderPlatform : MonoBehaviour
 
             //delete below code when testing in vr because you are gonna press the bell
             //Debug.Log("Take order was called");
-            currentCustomer.GetComponent<Customer>().TakeOrder();
+            //currentCustomer.GetComponent<Customer>().TakeOrder();
             //forPCTesting = true;
         }
     }

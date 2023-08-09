@@ -128,6 +128,8 @@ MonoBehaviour:
     type: 3}
   rotationSpeed: 3
   patienceSlider: {fileID: 0}
+  receiptSpawnPoint: {fileID: 5712027591464767871, guid: 10aa9fb8ccd9f474fafb52bcb423b723,
+    type: 3}
   newRecipe: {fileID: 0}
   order: {fileID: 11400000, guid: 9bcb3521e7c7e3c4786ec3d25794730b, type: 2}
   recipePrefab: {fileID: 8929750864745965729, guid: 4a7d27d6701d2b345a6ed4c2abff2ffb,
