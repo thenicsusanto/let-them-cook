@@ -106,6 +106,7 @@ public class Customer : MonoBehaviour
             patience = false;
             Destroy(newRecipe);
             newRecipe = null;
+            Movement.customersLost += 1;
             //insert angry leaving sound
         }
         
