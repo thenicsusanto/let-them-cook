@@ -33,7 +33,7 @@ public class FryAttack : MonoBehaviour
             Mathf.Abs(player.transform.position.z - transform.position.z) < 0.1f &&
             Mathf.Abs(player.transform.position.y - transform.position.y) < 0.1f)
         {
-            player.GetComponentInChildren<Movement>().health -= 4;
+            GameManager.Instance.health -= 4;
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
@@ -44,7 +44,7 @@ public class FryAttack : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            other.GetComponent<Movement>().health -= 4;
+            GameManager.Instance.health -= 4;
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

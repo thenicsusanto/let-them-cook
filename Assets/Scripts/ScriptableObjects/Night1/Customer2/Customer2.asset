@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 286c798c072418348bf9223a9e711171, type: 3}
-  m_Name: HotDog
+  m_Script: {fileID: 11500000, guid: a8825c3540fc029499e952c125f8375f, type: 3}
+  m_Name: Customer2
   m_EditorClassIdentifier: 
-  value: 1
-  foodName: HotDog
-  hasKetchup: 1
-  hasMustard: 0
+  customerName: Charlie
+  orderNumber: 2
+  menuItems:
+  - {fileID: 11400000, guid: 86881b219f2d35e49978ee01a4699832, type: 2}
+  totalCost: 7

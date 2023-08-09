@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.XR.Interaction.Toolkit;
 
-[RequireComponent(typeof(Animator))]
 public class burgerEnemyAI : MonoBehaviour
 {
     public GameObject player;
@@ -14,8 +13,6 @@ public class burgerEnemyAI : MonoBehaviour
     public ParticleSystem deathEffect;
     //public Transform playerPos;
     public NavMeshAgent agent;
-
-    int health = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -30,30 +27,8 @@ public class burgerEnemyAI : MonoBehaviour
         agent.SetDestination(player.transform.position);
     }
 
-    //IEnumerator MovePosition(float sec)
-    //{
-    //    float timer = 0;
-    //    Vector3 oldPos = transform.position;
-
-    //    while (timer < sec)
-    //    {
-    //        timer += Time.deltaTime;
-    //        Vector3 newPos = Vector3.Lerp(oldPos, new Vector3(playerPos.position.x, transform.position.y, playerPos.position.z), timer / sec);
-
-    //        transform.position = new Vector3(newPos.x, transform.position.y, newPos.z);
-    //        yield return null;
-    //    }
-    //}
-
     private void OnCollisionEnter(Collision collision)
     {
-
-        
-        //else
-        //{
-        //    EnemyJump();
-        //}
-
         if (collision.gameObject.CompareTag("Pan"))
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
@@ -77,7 +52,7 @@ public class burgerEnemyAI : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<Movement>().health -= 9;
+            GameManager.Instance.health -= 9;
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

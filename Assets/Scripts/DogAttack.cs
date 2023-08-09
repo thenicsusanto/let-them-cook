@@ -35,7 +35,7 @@ public class DogAttack : MonoBehaviour
         if(Mathf.Abs(player.transform.position.x - transform.position.x) < 0.1f &&
             Mathf.Abs(player.transform.position.z - transform.position.z) < 0.1f)
         {
-            player.GetComponent<Movement>().health -= 5;
+            GameManager.Instance.health -= 3;
             Destroy(this.gameObject);
         }
 

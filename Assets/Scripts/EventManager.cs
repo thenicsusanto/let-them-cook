@@ -16,13 +16,13 @@ public class EventManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (GetComponent<GameLoop>().won)
-        {
-            winScreen.SetActive(true);
-        }
-        else if (GetComponent<GameLoop>().lost)
-            loseScreen.SetActive(true);
-    }
+    //void Update()
+    //{
+    //    if (GetComponent<GameLoop>().won)
+    //    {
+    //        winScreen.SetActive(true);
+    //    }
+    //    else if (GetComponent<GameLoop>().lost)
+    //        loseScreen.SetActive(true);
+    //}
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class MealBag : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class MealBag : MonoBehaviour
             collision.gameObject.transform.localPosition = Vector3.zero;
             collision.gameObject.GetComponent<Collider>().enabled = false;
             collision.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            collision.gameObject.GetComponent<XRGrabInteractable>().enabled = false;
             collision.gameObject.GetComponentInChildren<Renderer>().enabled = false;
             foodInBag.Add(collision.gameObject);
             foodInBag = foodInBag.OrderBy(go => go.name).ToList();

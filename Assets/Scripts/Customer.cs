@@ -243,22 +243,28 @@ public class Customer : MonoBehaviour
         state = State.WalkingToWait;
         nextPoint = waitPoints[0];
         nextPointIndex = 0;
-
+        Debug.Log("Should walk");
         patienceSlider.GetComponent<Image>().fillAmount = 0;
         patience = true;
-        StartCoroutine(patienceTimer(45));
+        StartCoroutine(patienceTimer(15));
 
     }
 
     IEnumerator patienceTimer(float sec)
     {
-
         float timer = 0;
-        while ((timer) < sec && patience)
+        while ((timer < sec) && patience)
         {
             timer += Time.deltaTime;
             patienceSlider.GetComponent<Image>().fillAmount = (timer) / sec;
             yield return null;
+        }
+
+        if(state == State.WaitingForFood)
+        {
+            Debug.Log("ur bad");
+            //Write code to lose rating
+            GameManager.Instance.LoseRep();
         }
     }
 
@@ -283,18 +289,6 @@ public class Customer : MonoBehaviour
         }
         return 0;
     }
-    //public int ReorderComparedFoodList(GameObject obj1, GameObject obj2)
-    //{
-    //    if (obj1.GetComponent < value2.value)
-    //    {
-    //        return -1;
-    //    }
-    //    else if (value1.value > value2.value)
-    //    {
-    //        return 1;
-    //    }
-    //    return 0;
-    //}
 
     void CompareOrder()
     {

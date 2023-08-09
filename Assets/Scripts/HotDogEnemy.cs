@@ -36,21 +36,6 @@ public class HotDogEnemy : MonoBehaviour
         toFire = true;
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.CompareTag("rightHand") && player.GetComponent<Movement>().middleThreeFingers && player.GetComponent<Movement>().indexFinger)
-    //    {
-    //        //Debug.Log("Puched");
-    //        //Vector3 vel = other.gameObject.GetComponent<Rigidbody>().velocity;
-    //        //if(vel.x != 0 || vel.z != 0 || vel.y != 0)
-    //        //{
-    //        //    Destroy(this.gameObject);
-    //        //}
-    //        Instantiate(enemyDeathParticle, transform.position, Quaternion.identity);
-    //        Destroy(gameObject);
-    //    }
-    //}
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Pan"))
