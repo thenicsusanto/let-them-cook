@@ -18,6 +18,13 @@ public class EndingScreen : MonoBehaviour
         //    panels[0].SetActive(true);
         //else
         //    panels[1].SetActive(true);
+
+        if (GameManager.healthFinal <= 0)
+            panels[1].SetActive(true);
+        else if (GameManager.Instance.rating <= 0)
+            panels[0].SetActive(true);
+        else
+            panels[2].SetActive(true);
     }
 
     public void restart() {
