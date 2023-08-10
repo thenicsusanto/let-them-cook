@@ -12,7 +12,7 @@ public class FrenchFry : OrderItem
     }
     private void OnEnable()
     {
-        value = 2;
+        cost = 3;
     }
 
     //public override void CompareFrenchFries(FrenchFry dish)

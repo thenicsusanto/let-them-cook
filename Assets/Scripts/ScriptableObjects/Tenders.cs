@@ -9,7 +9,7 @@ public class Tenders : OrderItem
     
     private void OnEnable()
     {
-        value = 0;
+        cost = 6;
     }
 
     public override string CheckOrders()
@@ -22,12 +22,14 @@ public class Tenders : OrderItem
         if(tenderAmount == dish.tenderAmount)
         {
             Debug.Log("Perfect tender order!");
+            GameManager.Instance.AddMoney(cost);
             //Write reward code for completing perfect order
         }
         else
         {
             Debug.Log("You got the wrong chicken tender number");
-            GameManager.Instance.rating--;
+            GameManager.Instance.LoseRep();
+            GameManager.Instance.AddMoney(cost);
         }
     }
 }

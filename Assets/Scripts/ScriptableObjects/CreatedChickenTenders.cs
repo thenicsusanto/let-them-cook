@@ -40,7 +40,7 @@ public class CreatedChickenTenders : MonoBehaviour
         args.interactableObject.transform.GetComponent<BoxCollider>().enabled = false;
     }
 
-    public void ChickenExited(SelectEnterEventArgs args)
+    public void ChickenExited(SelectExitEventArgs args)
     {
         tenderAmount--;
         //chickenTenders.Remove(args.interactableObject.transform.gameObject);

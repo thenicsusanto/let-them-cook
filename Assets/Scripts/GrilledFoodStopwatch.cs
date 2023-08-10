@@ -50,7 +50,7 @@ public class GrilledFoodStopwatch : MonoBehaviour
             }
             state = CookedState.undercooked;            
         }
-        else if (currentTime >= timeToOvercooked * 0.5f && currentTime < timeToOvercooked * 0.85)
+        else if (currentTime >= timeToOvercooked * 0.5f && currentTime < timeToOvercooked * 0.97f)
         {
             for (int i = 0; i < transform.childCount; i++)
             {
@@ -61,7 +61,7 @@ public class GrilledFoodStopwatch : MonoBehaviour
             }
             state = CookedState.grilled;
         }
-        else if (currentTime >= timeToOvercooked * 0.9f)
+        else if (currentTime >= timeToOvercooked * 0.97f)
         {
             for (int i = 0; i < transform.childCount; i++)
             {

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8825c3540fc029499e952c125f8375f, type: 3}
+  m_Name: Customer4
+  m_EditorClassIdentifier: 
+  customerName: Chris
+  orderNumber: 4
+  menuItems:
+  - {fileID: 11400000, guid: ffb8ed562d7df6b4f8513e69802bbcea, type: 2}
+  - {fileID: 11400000, guid: 1c91d8903c7537d4a9400d87ea37b54d, type: 2}
+  totalCost: 15

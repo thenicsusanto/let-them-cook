@@ -38,4 +38,11 @@ public class CreatedBurger : MonoBehaviour
         args.interactableObject.transform.GetComponentInChildren<BoxCollider>().enabled = false;
         args.interactableObject.transform.GetComponent<BoxCollider>().enabled = false;
     }
+    public void BurgerExited()
+    {
+        Debug.Log("Exited");
+        state = "";
+        hasLettuce = false;
+        hasCheese = false;
+    }
 }

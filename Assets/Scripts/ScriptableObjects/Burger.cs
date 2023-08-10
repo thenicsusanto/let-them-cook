@@ -13,7 +13,7 @@ public class Burger : OrderItem
 
     private void OnEnable()
     {
-        value = 3;
+        cost = 10;
     }
 
     public override void CompareBurger(CreatedBurger dish)
@@ -21,13 +21,16 @@ public class Burger : OrderItem
         if((hasCheese && dish.hasCheese) && (hasLettuce && dish.hasLettuce) && dish.state == "grilled")
         {
             Debug.Log("Cheese is correct");
+            GameManager.Instance.AddMoney(cost);
             //Write perfect order code
         }
         else
         {
             Debug.Log("Your burger is trash!");
-            GameManager.Instance.rating--;
+            GameManager.Instance.LoseRep();
+            GameManager.Instance.AddMoney(cost);
         }
+        Debug.Log("checking commpare burger");
     }
 
     public override string CheckOrders()

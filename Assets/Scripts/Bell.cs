@@ -55,12 +55,12 @@ public class Bell : MonoBehaviour
     private void Update()
     {
         //Remove this code and use bell when checking collect order
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             TheAudioManager.Instance.PlaySFX("Bell");
             Debug.Log("checking collect order with space bar");
             CheckCollectOrder();
-            CheckTakeOrder();
+            //CheckTakeOrder();
         }
     }
 

@@ -30,14 +30,31 @@ public class MealBag : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("FoodBag"))
         {
+            Debug.Log(collision.gameObject.name);
+            collision.gameObject.GetComponent<XRGrabInteractable>().enabled = false;
+            IterateThroughChildren(collision.gameObject.transform);
             collision.gameObject.transform.SetParent(transform);
             collision.gameObject.transform.localPosition = Vector3.zero;
             collision.gameObject.GetComponent<Collider>().enabled = false;
             collision.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            collision.gameObject.GetComponent<XRGrabInteractable>().enabled = false;
-            collision.gameObject.GetComponentInChildren<Renderer>().enabled = false;
             foodInBag.Add(collision.gameObject);
             foodInBag = foodInBag.OrderBy(go => go.name).ToList();
+        }  
+    }
+
+    private void IterateThroughChildren(Transform parentTransform)
+    {
+        foreach (Transform child in parentTransform)
+        {
+            // Do something with the child GameObject or its components here
+            Debug.Log("Child name: " + child.name);
+            if(child.GetComponent<Renderer>() != null)
+            {
+                child.GetComponent<Renderer>().enabled = false;
+            }
+
+            // Recursive call to iterate through nested children
+            IterateThroughChildren(child);
         }
     }
 }

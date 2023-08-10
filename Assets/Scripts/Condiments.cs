@@ -8,19 +8,6 @@ public class Condiments : MonoBehaviour
     public bool hasMustard;
     public GameObject ketchupLine;
     public GameObject mustardLine;
-    //public bool hasMustard;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnParticleCollision(GameObject other)
     {

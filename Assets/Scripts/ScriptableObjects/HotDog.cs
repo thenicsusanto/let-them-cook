@@ -12,19 +12,21 @@ public class HotDog : OrderItem
 
     private void OnEnable()
     {
-        value = 1;
+        cost = 7;
     }
     public override void CompareHotDog(CreatedHotDog dish)
     {
         if (hasKetchup && dish.hasKetchup || !hasKetchup && !dish.hasKetchup || dish.state == "grilled")
         {
             Debug.Log("Everything is correct");
+            GameManager.Instance.AddMoney(cost);
             //Write reward code for completing perfect order
         }
         else
         {
             Debug.Log("You are wrong!");
-            GameManager.Instance.rating--;
+            GameManager.Instance.LoseRep();
+            GameManager.Instance.AddMoney(cost);
         }
     }
 

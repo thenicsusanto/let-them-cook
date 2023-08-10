@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class OrderItem : ScriptableObject
 {
-    public int value;
     public string foodName;
+    public int cost;
     public virtual string CheckOrders() 
     {
         return null;

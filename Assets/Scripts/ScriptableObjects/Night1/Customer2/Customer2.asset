@@ -15,5 +15,5 @@ MonoBehaviour:
   customerName: Charlie
   orderNumber: 2
   menuItems:
-  - {fileID: 11400000, guid: 86881b219f2d35e49978ee01a4699832, type: 2}
-  totalCost: 7
+  - {fileID: 11400000, guid: 552aed573a9aa1547bfaa90567a99608, type: 2}
+  totalCost: 6

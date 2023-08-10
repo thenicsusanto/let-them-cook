@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : Singleton<GameManager>
 {
     public GameObject readyFoodObject;
     public int rating = 3;
-
+    public int money;
     public bool grillOn;
 
     public int health = 100;
@@ -17,6 +18,8 @@ public class GameManager : Singleton<GameManager>
 
     public static int healthFinal = 100;
     public GameObject star1, star2, star3;
+
+    public TextMeshProUGUI moneyText;
 
     void Update()
     {
@@ -58,8 +61,14 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    public void AddMoney(int moneyToAdd)
+    {
+        money += moneyToAdd;
+        moneyText.text = money.ToString();
+    }
+
     public void LoseGame()
     {
-        SceneManager.LoadScene("EndingScreen");
+        SceneManager.LoadScene("Ending Screen");
     }
 }
