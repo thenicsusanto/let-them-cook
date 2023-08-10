@@ -55,21 +55,22 @@ public class Bell : MonoBehaviour
     private void Update()
     {
         //Remove this code and use bell when checking collect order
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            TheAudioManager.Instance.PlaySFX("Bell");
-            Debug.Log("checking collect order with space bar");
-            CheckCollectOrder();
-            //CheckTakeOrder();
-        }
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    TheAudioManager.Instance.PlaySFX("Bell");
+        //    Debug.Log("checking collect order with space bar");
+        //    CheckCollectOrder();
+        //    //CheckTakeOrder();
+        //}
     }
 
     public void CheckCollectOrder()
     {
-        if (pickupPlatform.foodReady && orderPlatform.listOfCurrentCustomers.Count != 0)
+        if (pickupPlatform.foodReady/*&& orderPlatform.listOfCurrentCustomers.Count != 0*/)
         {
             Debug.Log("Taking Order from CheckWaiting in Bell Script");
-            orderPlatform.listOfCurrentCustomers[0].GetComponent<Customer>().CollectOrder();
+            //orderPlatform.listOfCurrentCustomers[0].GetComponent<Customer>().CollectOrder();
+            orderPlatform.currentCustomer.GetComponent<Customer>().CollectOrder();
         }
     }
 }

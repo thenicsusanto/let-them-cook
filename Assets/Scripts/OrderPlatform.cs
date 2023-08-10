@@ -7,7 +7,7 @@ public class OrderPlatform : MonoBehaviour
     public bool takeOrder;
     public GameObject currentCustomer;
     //public GameObject priorityCustomer;
-    public List<GameObject> listOfCurrentCustomers = new List<GameObject>();
+    //public List<GameObject> listOfCurrentCustomers = new List<GameObject>();
 
     bool forPCTesting;
 
@@ -23,7 +23,7 @@ public class OrderPlatform : MonoBehaviour
         {
             takeOrder = true;
             currentCustomer = other.gameObject;
-
+            //listOfCurrentCustomers.Add(other.gameObject);
             //delete below code when testing in vr because you are gonna press the bell
             //Debug.Log("Take order was called");
             //currentCustomer.GetComponent<Customer>().TakeOrder();
@@ -36,9 +36,9 @@ public class OrderPlatform : MonoBehaviour
         if (other.CompareTag("Customer") /*&& priorityCustomer == null*/)
         {
             takeOrder = false;
-            currentCustomer = null;
+            //currentCustomer = null;
             //priorityCustomer = other.gameObject;
-            listOfCurrentCustomers.Add(other.gameObject);
+            
         }
     }
 }

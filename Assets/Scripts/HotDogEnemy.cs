@@ -42,7 +42,7 @@ public class HotDogEnemy : MonoBehaviour
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             TheAudioManager.Instance.PlaySFX("PanHit");
-            Destroy(gameObject, 0.6f);
+            Destroy(gameObject);
         }
 
         if (collision.gameObject.CompareTag("Stab"))

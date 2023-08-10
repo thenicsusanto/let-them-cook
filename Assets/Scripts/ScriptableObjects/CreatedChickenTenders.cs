@@ -7,6 +7,7 @@ public class CreatedChickenTenders : MonoBehaviour
 {
     public int tenderAmount;
     public int value = 0;
+    public BurgerBoxBehavior burgerBoxBehavior;
     //public string state;
     //public bool badlyGrilled;
     //[SerializeField] private List<GameObject> chickenTenders = new List<GameObject>();
@@ -35,9 +36,10 @@ public class CreatedChickenTenders : MonoBehaviour
         //{
         //    state = args.interactableObject.transform.GetComponentInChildren<GrilledFoodStopwatch>().state.ToString();
         //}
-        args.interactableObject.transform.GetComponentInChildren<Rigidbody>().isKinematic = true;
-        args.interactableObject.transform.GetComponentInChildren<BoxCollider>().enabled = false;
-        args.interactableObject.transform.GetComponent<BoxCollider>().enabled = false;
+        args.interactableObject.transform.GetComponent<Rigidbody>().isKinematic = true;
+        args.interactableObject.transform.GetComponent<CapsuleCollider>().enabled = false;
+        args.interactorObject.transform.SetParent(transform);
+        burgerBoxBehavior.renderers.Add(args.interactorObject.transform.gameObject);
     }
 
     public void ChickenExited(SelectExitEventArgs args)
@@ -53,8 +55,8 @@ public class CreatedChickenTenders : MonoBehaviour
         //}
         //state = "";
         args.interactableObject.transform.GetComponentInChildren<Rigidbody>().isKinematic = true;
-        args.interactableObject.transform.GetComponentInChildren<BoxCollider>().enabled = false;
-        args.interactableObject.transform.GetComponent<BoxCollider>().enabled = false;
+        //args.interactableObject.transform.GetComponentInChildren<BoxCollider>().enabled = false;
+        args.interactableObject.transform.GetComponent<Collider>().enabled = false;
     }
 
 }

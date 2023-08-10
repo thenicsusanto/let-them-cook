@@ -25,6 +25,14 @@ public class burgerEnemyAI : MonoBehaviour
     {
         //playerPos.position = player.transform.position;
         agent.SetDestination(player.transform.position);
+
+        if (Mathf.Abs(transform.position.x - player.transform.position.x) < 0.1 && Mathf.Abs(transform.position.z - player.transform.position.z) < 0.1)
+        {
+            GameManager.Instance.health -= 9;
+            ScreenFlash.Instance.FlashScreen();
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -34,8 +42,7 @@ public class burgerEnemyAI : MonoBehaviour
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             TheAudioManager.Instance.PlaySFX("PanHit");
-            Destroy(gameObject, 0.6f);
-            Instantiate(deathEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject);
 
         }
 
@@ -52,9 +59,7 @@ public class burgerEnemyAI : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.Instance.health -= 9;
-            Instantiate(deathEffect, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            
         }
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Customer : MonoBehaviour
@@ -71,6 +72,7 @@ public class Customer : MonoBehaviour
 
         patienceSlider = GameObject.FindGameObjectWithTag("patience");
         patience = false;
+        patienceSlider.GetComponent<Image>().fillAmount = 0;
     }
 
     // Update is called once per frame
@@ -112,12 +114,15 @@ public class Customer : MonoBehaviour
             RotateCustomer();
         }
 
-        if (patienceSlider.GetComponent<Image>().fillAmount > 0.97 && patience)
+        if (patienceSlider.GetComponent<Image>().fillAmount > 0.99 && patience)
         {
             patience = false;
-            //Destroy(newRecipe);
+            Destroy(newRecipe);
             newRecipe = null;
             //insert angry leaving sound
+            TheAudioManager.Instance.PlaySFX("OrderFailed");
+            GameManager.Instance.LoseRep();
+            Destroy(gameObject);
         }
 
     }
@@ -193,6 +198,10 @@ public class Customer : MonoBehaviour
         Debug.Log("Sorted...");
         CompareOrder();
         TheAudioManager.Instance.PlaySFX("MoneyCollect");
+        if(order.orderNumber == "4")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
         //Write code below for customer to rate order and affect rating/reputation of Jerry's kitchen
         nextPointIndex = 0;
         state = State.WalkingToLeave;
@@ -253,7 +262,7 @@ public class Customer : MonoBehaviour
         Debug.Log("Should walk");
         patienceSlider.GetComponent<Image>().fillAmount = 0;
         patience = true;
-        StartCoroutine(patienceTimer(45));
+        StartCoroutine(patienceTimer(60));
 
     }
 
@@ -266,18 +275,12 @@ public class Customer : MonoBehaviour
             patienceSlider.GetComponent<Image>().fillAmount = (timer) / sec;
             yield return null;
         }
-
-        if(state == State.WaitingForFood)
-        {
-            Debug.Log("ur bad");
-            //Write code to lose rating
-            GameManager.Instance.LoseRep();
-        }
     }
 
     public void CollectOrder()
     {
         Debug.Log("Order Getting Collected...");
+        patience = false;
         //Write code for customer to walk back and collect food
         state = State.WalkingToCollect;
         nextPoint = collectPoints[0];

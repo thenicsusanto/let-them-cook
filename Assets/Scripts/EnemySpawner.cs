@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        placeHolder = 0;
+        placeHolder = 10;
     }
 
     private void Update()

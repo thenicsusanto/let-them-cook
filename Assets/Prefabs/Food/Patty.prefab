@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 71f49c2ae500a944aa200feaf42fb834, type: 2}
+  - {fileID: 2100000, guid: 1024382c13023e144a5dd8a53adb6254, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stopwatchActive: 0
-  timeToOvercooked: 20
+  timeToOvercooked: 35
   undercookedMat: {fileID: 2100000, guid: 2573562d458d8da4ab9fec2cb011445d, type: 2}
   grilledMat: {fileID: 2100000, guid: 5e46f84edf61788419a31a1911dd3d73, type: 2}
   overcookedMat: {fileID: 2100000, guid: 71f49c2ae500a944aa200feaf42fb834, type: 2}

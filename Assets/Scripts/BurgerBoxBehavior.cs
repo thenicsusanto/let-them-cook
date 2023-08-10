@@ -10,7 +10,7 @@ public class BurgerBoxBehavior : MonoBehaviour
     [SerializeField] private InputActionReference rightTriggerAction;
     [SerializeField] private InputActionReference leftTriggerAction;
     private Coroutine hoverCoroutine;
-
+    public List<GameObject> renderers = new List<GameObject>();
     [SerializeField] private Animator anim;
     bool isOpen;
 

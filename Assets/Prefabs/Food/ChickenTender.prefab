@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9188353571588259828}
   - component: {fileID: 687427998570026585}
   - component: {fileID: 6778092127683517374}
+  - component: {fileID: 7539074765604648624}
   m_Layer: 0
   m_Name: newMeat
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 496bb1adf29a14441ab9f922d08d5a0f, type: 2}
+  - {fileID: 2100000, guid: 0d535594942147a4daa2c0d5921a9423, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,6 +84,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7539074765604648624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376700419008059237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7568f39d5efb3374e92ab8c120df0c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7090641615153825699
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stopwatchActive: 0
-  timeToOvercooked: 10
+  timeToOvercooked: 20
   undercookedMat: {fileID: 2100000, guid: bd47f3933a6b9e64f88bb22dc7ef33f2, type: 2}
   grilledMat: {fileID: 2100000, guid: f27efc5eadeca204d95b90dcd806a1d7, type: 2}
   overcookedMat: {fileID: 2100000, guid: 496bb1adf29a14441ab9f922d08d5a0f, type: 2}
@@ -314,6 +327,7 @@ GameObject:
   - component: {fileID: 8807374804566467751}
   - component: {fileID: 4669451227901940534}
   - component: {fileID: 6664190111448594618}
+  - component: {fileID: 1846955652737534168}
   m_Layer: 0
   m_Name: newBone
   m_TagString: Untagged
@@ -386,3 +400,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1846955652737534168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8380913373066102410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7568f39d5efb3374e92ab8c120df0c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

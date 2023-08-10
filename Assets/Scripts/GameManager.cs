@@ -21,13 +21,19 @@ public class GameManager : Singleton<GameManager>
 
     public TextMeshProUGUI moneyText;
 
+    private void Start()
+    {
+        /*healthSlider = GameObject.FindWithTag("Watch").GetComponent<Image>();
+        Debug.Log(GameObject.FindWithTag("Watch"));*/
+    }
     void Update()
     {
         if (!SceneManager.GetActiveScene().name.Equals("Ending Screen"))
         {
             healthFinal = health;
 
-            healthSlider.fillAmount = ((float)health / 100.0f);
+            if(healthSlider != null)
+                healthSlider.fillAmount = ((float)health / 60f);
 
             if (health <= 0)
             {
@@ -35,6 +41,11 @@ public class GameManager : Singleton<GameManager>
             }
 
         }
+    }
+
+    public void GetWatch(Image watch)
+    {
+        healthSlider = watch;
     }
 
     public void LoseRep()
@@ -64,7 +75,7 @@ public class GameManager : Singleton<GameManager>
     public void AddMoney(int moneyToAdd)
     {
         money += moneyToAdd;
-        moneyText.text = money.ToString();
+        moneyText.text = "$" + money.ToString();
     }
 
     public void LoseGame()

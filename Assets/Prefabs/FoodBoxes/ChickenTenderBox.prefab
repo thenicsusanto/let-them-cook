@@ -400,7 +400,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 32
   m_AttachTransform: {fileID: 4231525140123780395}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -579,7 +579,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 32
   m_AttachTransform: {fileID: 4231525142186338813}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -1073,6 +1073,7 @@ MonoBehaviour:
     type: 3}
   leftTriggerAction: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  renderers: []
   anim: {fileID: 4231525140591314089}
 --- !u!114 &4231525141317953734
 MonoBehaviour:
@@ -1088,6 +1089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tenderAmount: 0
   value: 0
+  burgerBoxBehavior: {fileID: 4231525141317953730}
 --- !u!1 &4231525141484331040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,7 +1207,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 32
   m_AttachTransform: {fileID: 4231525141543822584}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -1415,7 +1417,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 32
   m_AttachTransform: {fileID: 4231525140895425536}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1

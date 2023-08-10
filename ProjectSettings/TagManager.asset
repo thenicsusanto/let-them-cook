@@ -18,6 +18,7 @@ TagManager:
   - Pan
   - Stab
   - patience
+  - Watch
   layers:
   - Default
   - TransparentFX

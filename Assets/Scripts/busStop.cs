@@ -18,17 +18,24 @@ public class busStop : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("MainCamera"))
-        {
-            menuTheme.Stop();
-            busSound.Play();
-            StartCoroutine(leaveToScreen());
-        }
+        //if(other.gameObject.CompareTag("MainCamera"))
+        //{
+        //    menuTheme.Stop();
+        //    busSound.Play();
+        //    StartCoroutine(leaveToScreen());
+        //}
+    }
+
+    public void StartGame()
+    {
+        menuTheme.Stop();
+        busSound.Play();
+        StartCoroutine(leaveToScreen());
     }
 
     IEnumerator leaveToScreen()
     {
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(8);
         SceneManager.LoadScene("Testing1 1");
     }
 }
