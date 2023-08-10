@@ -28,7 +28,7 @@ public class busStop : MonoBehaviour
 
     IEnumerator leaveToScreen()
     {
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(30);
         SceneManager.LoadScene("Testing1 1");
     }
 }
