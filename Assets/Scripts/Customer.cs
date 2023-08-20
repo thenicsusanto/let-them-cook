@@ -198,7 +198,8 @@ public class Customer : MonoBehaviour
         Debug.Log("Sorted...");
         CompareOrder();
         TheAudioManager.Instance.PlaySFX("MoneyCollect");
-        if(order.orderNumber == "4")
+        yield return new WaitForSeconds(1f);
+        if(order.orderNumber == "3")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }

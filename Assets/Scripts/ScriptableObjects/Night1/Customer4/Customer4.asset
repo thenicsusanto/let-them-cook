@@ -16,4 +16,3 @@ MonoBehaviour:
   orderNumber: 4
   menuItems:
   - {fileID: 11400000, guid: ffb8ed562d7df6b4f8513e69802bbcea, type: 2}
-  - {fileID: 11400000, guid: 1c91d8903c7537d4a9400d87ea37b54d, type: 2}

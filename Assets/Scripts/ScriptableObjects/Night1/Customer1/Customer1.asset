@@ -16,4 +16,3 @@ MonoBehaviour:
   orderNumber: 1
   menuItems:
   - {fileID: 11400000, guid: 09e47935325d3ea43afe01cb49862934, type: 2}
-  totalCost: 3

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286c798c072418348bf9223a9e711171, type: 3}
   m_Name: HotDog
   m_EditorClassIdentifier: 
-  value: 1
   foodName: HotDog
+  cost: 7
   hasKetchup: 1
   hasMustard: 0
